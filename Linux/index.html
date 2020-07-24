@@ -1,0 +1,2217 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Linux_Centos - bobo note</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../css/theme.css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Linux_Centos";
+    var mkdocs_page_input_path = "Linux.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> bobo note</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="..">index</a>
+                    </li>
+                </ul>
+                <ul class="current">
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Linux_Centos</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#linux_1">Linux 基础操作</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#-">基础命令 （命令 -选项 路径/文件）</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#_1">输出重定向</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_2">进阶指令</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#_3">管道符 |</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_4">高级指令</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#_5">关机命令</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_6">计算机目录介绍</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#_7">文件夹</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_8">快捷键</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#vim">Vim</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#_9">打开方式</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_10">命令模式</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_11">编辑模式</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_12">末行模式</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_13">其它功能</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#_14">代码作色</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#vim_1">vim中的计算器</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_15">拓展内容</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#vim_2">vim 配置</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#_16">别名机制</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#_17">文件加密</a>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#linux_2">Linux 自有服务（内置服务）</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#_18">运行模式</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_19">用户与用户组</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#_20">用户管理</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#_21">用户组管理</a>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#_22">网络设置及服务</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#_23">网卡配置</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#ssh-secure-shell">SSH 服务（secure shell，安全协议）</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#_24">远程终端连接</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_25">远程文件传输</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#chkconfig">chkconfig</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#ntp">ntp 服务</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#_26">防火墙</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#rpm">rpm 管理</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#cron">cron 计划任务</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#linux_3">Linux 权限</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#_27">用户身份权限</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#sudo">sudo</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">bobo note</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Linux_Centos</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="linux">Linux</h1>
+<h2 id="linux_1">Linux 基础操作</h2>
+<h3 id="-">基础命令 （命令 -选项 路径/文件）</h3>
+<ul>
+<li>
+<p>ls 显示文件列表（list）</p>
+<ul>
+<li>颜色：黑色表示文件，蓝色表示文件夹，绿色表示其权限为所有权限。</li>
+<li>ls /root 列出路径下的文件列表<ul>
+<li>/root：绝对路径，表示从根目录下开始寻找</li>
+<li>root：相对路径，./这一级（可加可不加） ../上一级</li>
+</ul>
+</li>
+<li>ls -l root <ul>
+<li>-l：以列表，列出详细信息</li>
+<li>-la：显示隐藏文件信息</li>
+<li>-lh：显示列表，文件大小单位自调节</li>
+<li>-lah：显示隐藏，文件大小单位自调节<blockquote>
+<p>-rw-------. 1 root root 1960 7月   6 21:58 anaconda-ks.cfg
+    &gt;&gt; -  -rw--- ：权限（第一个是-表示文件，是d表示文件夹，l是快捷方式）
+    &gt;&gt; -  1 ：文件硬链接数
+    &gt;&gt; -  root ：用户名
+    &gt;&gt; -  root ：用户组
+    &gt;&gt; -  1960 ：文件大小，字节
+    &gt;&gt; -  7月   6 21:58 ：表示时间
+    &gt;&gt; -  anaconda-ks.cfg ：表示文件名（隐藏文件一般以.开头）</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>pwd 打印当前工作路径</p>
+</li>
+<li>
+<p>cd /root 到root目录下，注意cd后面没有：</p>
+<ul>
+<li>cd ~ ：切换到当前用户的家目录</li>
+<li>cd / ：切换到根目录</li>
+</ul>
+</li>
+<li>
+<p>mkdir 创建文件夹</p>
+<ul>
+<li>mkdir hello ：在当前文件夹下创建文件夹</li>
+<li>mkdir ~/hello ：在用户家目录下创建</li>
+<li>mkdir /root/hello ：在指定文件夹下创建<ul>
+<li>mkdir -p /root/a/b/c <ul>
+<li>当不存在a/b目录时</li>
+<li>-p 代表假如没有之前的目录，则创建之前的目录</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>mkdir a b c ：表示一次性创建多个文件夹</li>
+</ul>
+</li>
+<li>
+<p>touch 新建文件（同mkdir使用一样，只是没有-p选项）</p>
+</li>
+<li>
+<p>ln 新建快捷方式</p>
+<ul>
+<li>ln -s 原始路径 快捷方式路径</li>
+</ul>
+</li>
+<li>
+<p>cp 复制文档（可文件，可文件夹）到指定路径</p>
+<ul>
+<li>cp /root/a/1.txt /root/b/<ul>
+<li>第一个路径：文件路径</li>
+<li>第二个路径：复制目标路径</li>
+</ul>
+</li>
+<li>cp /root/a/1.txt /root/b/2.txt<ul>
+<li>Linux在复制过程中可以改名</li>
+<li>第二个路径：复制目标路径及复制之后的名字</li>
+</ul>
+</li>
+<li>cp -r /root/a/ /root/b/<ul>
+<li>复制文件夹，一定要加 -r ！！！</li>
+<li>-r ：表示递归</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>mv 剪切（同cp类似，也可以改名字，也可以剪切文件夹）</p>
+<ul>
+<li>mv /root/a /root/b 重命名的一种方法</li>
+</ul>
+</li>
+<li>
+<p>rm 删除</p>
+<ul>
+<li>rm /root/1.txt 删除文件<ul>
+<li>rm -r /root/a 删除文件夹<ul>
+<li>-r删除文件夹时，需要添加（此时会有提示）</li>
+</ul>
+</li>
+<li>rm -f /root/1.txt 强制删除，不会弹出提示<ul>
+<li>-f强制删除</li>
+<li>-rf 可以强制删除文件夹，没有提示</li>
+</ul>
+</li>
+<li>rm -rf /root/a /root/1.txt 删除多个文档</li>
+<li>rm -f /root/linux<em> 删除所有以linux开头的文档（</em>通配符）</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>vim 使用vim打开文件（文本编辑器）</p>
+<ul>
+<li>vim /root/1.txt 用vim打开文件，文件可以存在，也可以不存在（创建）<ul>
+<li>在vim下，"shift"+":" 进入命令输入，输入"q"退出，输入"q！"不保存强制退出</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>cat 直接打开文件（不需要像vim一样退出）</p>
+<ul>
+<li>cat /root/1.txt 打开文件</li>
+<li>cat 1.txt 2.txt &gt; 3.txt 合并文件（配合输出重定向）</li>
+</ul>
+</li>
+</ul>
+<h4 id="_1">输出重定向</h4>
+<pre><code>一般命令都是在终端显示输出，将输出保存到文件，就叫输出重定向
+</code></pre>
+<ul>
+<li>"&gt;" 覆盖输出</li>
+<li>"&gt;&gt;" 追加输出<ul>
+<li>ls -la /root &gt; /root/1.txt 将输出保存到文件</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h3 id="_2">进阶指令</h3>
+<ul>
+<li>
+<p>df 查看磁盘空间</p>
+<ul>
+<li>df -h 查看磁盘空间，大小带单位</li>
+</ul>
+</li>
+<li>
+<p>free 查看内存使用情况</p>
+<ul>
+<li>free -h 大小带单位</li>
+<li>free -m 单位为mb</li>
+</ul>
+</li>
+<li>
+<p>head 查看文件前n行，默认前10行</p>
+<ul>
+<li>head -5 前5行</li>
+</ul>
+</li>
+<li>
+<p>tail 查看文件后n行（用法与head一样）</p>
+<ul>
+<li>tail -F 文件路径 ：查看文件动态变化（注意F要大写）</li>
+</ul>
+</li>
+<li>
+<p>less 查看文件，以较少的内容进行输出</p>
+<ul>
+<li>可以通过下端输入数字，控制显示的开始行数</li>
+<li>按空格一页一页翻页</li>
+<li>方向键上下及回车键可以一行一行查看</li>
+<li>按q退出</li>
+</ul>
+</li>
+<li>
+<p>wc 统计文件内容信息</p>
+<ul>
+<li>wc -lwc 文件路径（不加lwc，默认也显示lwc内容）<ul>
+<li>-l ：行数</li>
+<li>-w ：字数</li>
+<li>-c ：字节</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>date 操作时间日期</p>
+<ul>
+<li>date 显示时间日期</li>
+<li>date +%F 输出格式化日期</li>
+<li>date +%F%T 输出日期时间（此时日期时间连在一起）<ul>
+<li>date "+%F %T" 输出日期时间，空格隔开（""里面的为一个命令）</li>
+</ul>
+</li>
+<li>date -d "-1 day" "+%F %T" 输出一天前的日期时间<ul>
+<li>date -d "-1 year" "+%F %T" 输出一年前的日期时间</li>
+<li>date -d "+1 year" "+%F %T" 输出一年后的日期时间</li>
+<li>中间可以是 day ， month ， year</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>cal 操作日历</p>
+<ul>
+<li>cal 显示日历（以周日开始）</li>
+<li>cal -3 显示日历（包含上一月和下一月）</li>
+<li>cal -y 2008 显示2008那一年的日历</li>
+<li>cal -m 显示日历，以周一开始</li>
+</ul>
+</li>
+<li>
+<p>clear 清屏</p>
+<ul>
+<li>ctrl + L 快捷键也可以</li>
+</ul>
+</li>
+</ul>
+<h4 id="_3">管道符 |</h4>
+<p>管道符的左边的输出，会作为右边的输入，最后显示右边的输出。<br />
+主要用法有“过滤”，“特殊”，“扩展处理”
+- 过滤
+    - ls /root | grep y 输出目录下含“y”的文件名（grep 用于过滤的函数）
+    - grep 还可以直接用来做正则搜索
+        - grep l+ 1.txt
+            - l+ 部分是正则表达式
+            - 1.txt 是要搜索的文件</p>
+<ul>
+<li>
+<p>特殊用法</p>
+<ul>
+<li>cat 路径 | less 等价于 less 路径</li>
+</ul>
+</li>
+<li>
+<p>拓展用法</p>
+<ul>
+<li>ls /root | wc -l 统计文件夹下文件个数<ul>
+<li>wc 也可以直接用，也是统计的功能</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h3 id="_4">高级指令</h3>
+<ul>
+<li>
+<p>hostname 操作服务器主机名</p>
+<ul>
+<li>hostname 输出完整主机名</li>
+<li>hostname -f 输出当前主机的全限定域名</li>
+<li>临时修改主机名<ul>
+<li>hostname 主机名</li>
+<li>su 切换用户生效</li>
+<li>关机之后失效</li>
+</ul>
+</li>
+<li>永久修改主机名<ul>
+<li>配置文件：/etc/sysconfig/network</li>
+<li>vim修改之后，重启即可（还需要修改hosts，比较麻烦）</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>id 显示用户id</p>
+<ul>
+<li>id 显示当前用户基本信息</li>
+<li>id 用户名 显示该用户名的信息<ul>
+<li>用户信息存放位置：/etc/passwd</li>
+<li>用户组信息存放位置：/etc/group</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>whoami 显示当前登录的用户名</p>
+</li>
+<li>
+<p>ps 查看服务器进程</p>
+<ul>
+<li>选项 ：<ul>
+<li>-e 等价于 -A 列出全部进程</li>
+<li>-f 显示全部的列</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>top 查看服务器进程的资源占用情况（动态显示）（按q退出）</p>
+<ul>
+<li>显示内容：<ul>
+<li>PR 优先级</li>
+<li>VIRT 虚拟内存（申请的内存）</li>
+<li>RES 常驻内容（用了多少）</li>
+<li>SHR 共享内存（其他进程调用的该进程的内容）<ul>
+<li>一个进程实际的内存占用 = RES - SHR</li>
+</ul>
+</li>
+<li>S 是否在睡眠，睡眠显示 S ，运行显示 R</li>
+<li>COMMAND 进程的名称或者路径</li>
+</ul>
+</li>
+<li>按下大写M，以内存进行排序</li>
+<li>按下大写P，以cpu进行排序</li>
+<li>按下数字1，查看多个cpu的情况</li>
+</ul>
+</li>
+<li>
+<p>du 查看目录真实大小</p>
+<ul>
+<li>选项：<ul>
+<li>-s 只显示汇总的大小</li>
+<li>-h 表示以高可读性显示</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>find 查找文件</p>
+<ul>
+<li>find 路径 选项 选项的值 （文件路径尽量精确）<ul>
+<li>选项：<ul>
+<li>-name 查找的文件名字，支持模糊搜索</li>
+<li>-type 查找的类型<ul>
+<li>f 文件</li>
+<li>d 文件夹</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>service 控制软件服务的启动/停止/重启</p>
+<ul>
+<li>service 服务名 start/stop/restart</li>
+<li>service httpd start 启动服务器Apache（网站服务器软件），其服务名为httpd</li>
+<li>Centos 7 之后这样！！！！！！<ul>
+<li>systemctl start httpd.service </li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>kill 结束进程</p>
+<ul>
+<li>kill 进程id（PID） 结束进程</li>
+</ul>
+</li>
+<li>
+<p>killall 结束进程</p>
+<ul>
+<li>killall 进程名称 结束进程</li>
+</ul>
+</li>
+<li>
+<p>ifconfig 操作网卡</p>
+</li>
+<li>
+<p>reboot 重启</p>
+<ul>
+<li>reboot -w 模拟重启（不重启），只写开机日志，但不重启</li>
+</ul>
+</li>
+<li>
+<p>uptime 计算机在线时间</p>
+</li>
+<li>
+<p>uname 获取计算机信息</p>
+<ul>
+<li>uname 获取计算机系统名</li>
+<li>uname -a 获取计算机系统全部信息</li>
+</ul>
+</li>
+<li>
+<p>netstat 查看网络状态</p>
+<ul>
+<li>netstat -tnlp</li>
+<li>选项 ：<ul>
+<li>-t 只列出tcp协议的连接</li>
+<li>-n 将地址转化为ip，将协议转化为端口号</li>
+<li>-l 过滤状态（state）为监听（LISTEN）的</li>
+<li>-p 表示只显示发起连接的进程的pid 和进程名称</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>man 查看命令的手册</p>
+<ul>
+<li>man 命令 <ul>
+<li>退出按q</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="_5">关机命令</h4>
+<ul>
+<li>
+<p>shutdown  关机 </p>
+<ul>
+<li>shutdown -h now 立马关机</li>
+<li>shutdown -h 15:30 定时关机<ul>
+<li>shutdown -h 15:30 "机器即将关机"  定时关机，并且提示</li>
+<li>按下 CTRL + "C"  取消，centos 7 之前的</li>
+</ul>
+</li>
+<li>shutdown -c 取消关机，centos 7 之后的</li>
+</ul>
+</li>
+<li>
+<p>init 0</p>
+</li>
+<li>halt</li>
+<li>poweroff</li>
+</ul>
+<hr />
+<h3 id="_6">计算机目录介绍</h3>
+<h4 id="_7">文件夹</h4>
+<ul>
+<li>bin：储存二进制可执行文件。</li>
+<li>dev：存放外接设备，在其中的设备不能直接运行，需要挂载（mnt目录下）。</li>
+<li>mnt：外接设备的挂载文件夹。</li>
+<li>etc：储存配置文件。</li>
+<li>home：除root之外的用户的目录文件。</li>
+<li>proc：储存进程文件。</li>
+<li>root：root用户的目录文件。</li>
+<li>sbin：有super权限的用户才能执行的二进制文件。</li>
+<li>tmp：相当于temp文件，临时文件。</li>
+<li>usr：存放用户自己安装的软件，类似于win下的program files。</li>
+<li>var：存放程序或系统的日志文件。</li>
+</ul>
+<hr />
+<h3 id="_8">快捷键</h3>
+<ul>
+<li>
+<p>CTRL + c 关闭当前进程（在一些情况下需要CTRL + D）</p>
+</li>
+<li>
+<p>CTRL + Z 将当前进程挂起在后台</p>
+<ul>
+<li>按下 jobs 查看后台</li>
+<li>fg %数字 切换任务到前台</li>
+</ul>
+</li>
+<li>
+<p>CTRL + u 删除光标之前内容</p>
+</li>
+<li>
+<p>CTRL + k 删除光标之后内容</p>
+</li>
+<li>
+<p>CTRL + w 删除光标前一个单词</p>
+</li>
+<li>
+<p>CTRL + L 清屏</p>
+</li>
+</ul>
+<hr />
+<h2 id="vim">Vim</h2>
+<h3 id="_9">打开方式</h3>
+<ul>
+<li>vim 文件路径 ：直接打开</li>
+<li>vim +数字 文件路径 ：打开文件，跳到指定行</li>
+<li>vim +/关键词 文件路径 ：打开文件，高亮显示关键词</li>
+<li>vim 文件1 文件2 ：同时打开多个文件</li>
+</ul>
+<hr />
+<h3 id="_10">命令模式</h3>
+<p>【打开文件之后默认进入的模式】<br />
+该模式下不能对文件进行直接编辑，可以输入快捷键来进行部分操作（删除行，复制行，移动光标，粘贴等）
+- vim /root/1.txt 用vim打开文件，文件可以存在，也可以不存在（创建）
+    - 在vim下，"shift"+":" 进入命令输入
+    - 输入"q"退出
+    - 输入"q！"不保存强制退出
+    - 输入 "wq" 保存退出
+    - 输入 "x" 智能退出，有修改则保存</p>
+<ul>
+<li>
+<p>光标操作</p>
+<ul>
+<li>按下"^"（shift + 6），或者home键 ，移动光标到行首</li>
+<li>按下"$"（shift + 4），或者end键 ，移动光标到行尾</li>
+<li>按下"gg" ，光标移动到首行开头</li>
+<li>按下"G" ，光标移动到末行开头</li>
+<li>按下"W" ，光标向后移动一个单词</li>
+<li>按下"B" ，光标往前移动一个单词</li>
+<li>按下pgup或者(ctrl b)，pgdn或者(ctrl f)，向上或向下翻页</li>
+<li>按下 (数字 G) 或者 ( 数字 gg )，将光标移动到第n行</li>
+<li>(数字 方向键) 或者(HJKL) ，向上下左右移动光标</li>
+<li>(数字 j/k) 往下或往上n行</li>
+<li>shift ： 输入 数字 回车 ，移动到第n行</li>
+</ul>
+</li>
+<li>
+<p>复制粘贴</p>
+<ul>
+<li>按下yy复制行</li>
+<li>按下 数字yy ，复制光标所在行及向下的多行</li>
+<li>按下 ctrl v ，再按方向键控制光标，再按下yy ，可复制一块区域内的内容</li>
+<li>按下 v ，再按方向键控制光标 ，正常光标选中的效果</li>
+<li>按下p ，在下一行粘贴</li>
+</ul>
+</li>
+<li>
+<p>剪切删除</p>
+<ul>
+<li>按下 dd 删除一行</li>
+<li>按下 d 方向键左，删除光标前一个</li>
+<li>按下 d 方向键右，删除光标选中的</li>
+<li>按下 d 方向键上或下，删除选中行和上或下的一行</li>
+<li>按下 d 数字 方向键，删除所选行及上下n行</li>
+<li>按下 数字键 dd ，删除光标所在行及向下的多行</li>
+<li>按下 D ，删除所在行，下一行不上移</li>
+</ul>
+</li>
+<li>
+<p>撤销</p>
+<ul>
+<li>按下 u 撤销上一步操作，可连续撤销</li>
+</ul>
+</li>
+<li>恢复<ul>
+<li>ctrl r 恢复（取消）之前的撤销</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h3 id="_11">编辑模式</h3>
+<p>该模式下可以对文件内容进行直接编辑
+- 进入
+    - 在命令模式下，按i，在光标所在前插入
+    - 按方向键改变光标位置</p>
+<ul>
+<li>退出<ul>
+<li>按下 esc</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h3 id="_12">末行模式</h3>
+<p>在该模式下，可以在末行输入一些命令对文件进行操作（搜索，替换，保存，退出，撤销，高亮）
+- 进入
+    - 在命令模式下，按：（即shift ：） 或 "/"（仅用于搜索） 进入末行模式
+- 退出末行模式
+    - 按esc 一下 （慢）
+    - 按两下esc （快）
+    - 删除内容及"："</p>
+<ul>
+<li>
+<p>保存</p>
+<ul>
+<li>输入 w 保存</li>
+<li>输入 w 路径 另存为</li>
+</ul>
+</li>
+<li>
+<p>退出</p>
+<ul>
+<li>输入 q 退出</li>
+<li>输入 wq 保存并退出</li>
+<li>输入 q! 强制退出，不保存</li>
+<li>输入 x 智能退出，有修改则保存</li>
+</ul>
+</li>
+<li>
+<p>不退出执行终端命令</p>
+<ul>
+<li>输入 ! 外部命令  执行外部命令（切换到终端显示）<ul>
+<li>按下enter可继续切换到vim内</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>搜索</p>
+<ul>
+<li>按下 / 进入末行模式<ul>
+<li>/要搜索的词语 （中间没有空格）</li>
+</ul>
+</li>
+<li>搜索结果的切换<ul>
+<li>按 N 切到上一个结果</li>
+<li>按 n 切到下一个结果</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>取消高亮 </p>
+<ul>
+<li>：输入nohl 或者 noh （no highlight）</li>
+</ul>
+</li>
+<li>
+<p>替换</p>
+<ul>
+<li>：s/搜索内容/替换内容  替换光标所在行的第一处符合的内容</li>
+<li>：s/搜索内容/替换内容/g  替换光标所在行的所有符合的内容</li>
+<li>：%s/搜索内容/替换内容  替换整个文档每一行第一个符合的</li>
+<li>：%s/搜索内容/替换内容/g  替换全部符合的<ul>
+<li>% 表示整个文档</li>
+<li>g 表示全局（行）</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>显示行号</p>
+<ul>
+<li>：set nu （number） 显示行号</li>
+<li>：set nonu 不显示行号</li>
+</ul>
+</li>
+<li>
+<p>多文档切换（在打开用一个vim打开多个文件的前提下，不能是打开多个vim！！！）</p>
+<ul>
+<li>查看当前已打开的文件<ul>
+<li>：files<ul>
+<li>"%a" 表示打开的文件</li>
+<li>"#"表示上一个打开的文件</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>切换文件<ul>
+<li>：open 文件名</li>
+<li>：bn 切换到下一个文件（next）</li>
+<li>：bp 切换到上一个文件（previous）</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h3 id="_13">其它功能</h3>
+<h4 id="_14">代码作色</h4>
+<ul>
+<li>code模式下自动作色<ul>
+<li>：syntax on 显示作色（syntax：语法）</li>
+<li>：syntax off 不显示</li>
+</ul>
+</li>
+</ul>
+<h4 id="vim_1">vim中的计算器</h4>
+<ul>
+<li>步骤<ul>
+<li>先进入编辑模式</li>
+<li>按下 ctrl+r ，然后输入 = ，此时光标会变到最后一行</li>
+<li>输入需要计算的内容，按下回车</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h3 id="_15">拓展内容</h3>
+<h4 id="vim_2">vim 配置</h4>
+<ul>
+<li>
+<p>配置的三种情况</p>
+<ul>
+<li>临时配置，即在命令模式下输入的配置</li>
+<li>个人配置文件（~/.vimrc 隐藏文件，如果没有，可自行新建）</li>
+<li>全局配置文件（vim自带，/etc/vimrc）</li>
+</ul>
+</li>
+<li>
+<p>配置步骤</p>
+<ul>
+<li>新建个人配置文件</li>
+<li>vim 打开 ，进入编辑模式</li>
+<li>写入配置内容<ul>
+<li>set nu 显示行号</li>
+</ul>
+</li>
+<li>当个人配置与全局配置有冲突时，以个人配置为准！！！</li>
+</ul>
+</li>
+</ul>
+<h4 id="_16">别名机制</h4>
+<ul>
+<li>设置映射<ul>
+<li>映射文件：~/.bashrc</li>
+<li>vim编辑即可</li>
+<li>重新登录当前账号生效</li>
+</ul>
+</li>
+</ul>
+<h4 id="_17">文件加密</h4>
+<ul>
+<li>设置密码<ul>
+<li>vim命令模式下，输入大写的 X</li>
+<li>输入密码</li>
+<li>保持退出，一定要保存才生效</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2 id="linux_2">Linux 自有服务（内置服务）</h2>
+<h3 id="_18">运行模式</h3>
+<p>以下内容 centos 7 已经不适用  </p>
+<blockquote>
+<p>在Linux中存在一个进程：init （initialize，初始化），进程id是1。<br />
+查看该进程：ps -ef | grep init<br />
+配置文件 inittab 在：/etc/inittab</p>
+</blockquote>
+<ul>
+<li>命令（切换模式）<ul>
+<li>init 0 关机</li>
+<li>init 3 切换到不带桌面模式</li>
+<li>init 5 切换到图形界面</li>
+<li>init 6 重启</li>
+<li>切记不可用错数字！！！</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h3 id="_19">用户与用户组</h3>
+<ul>
+<li>配置文件位置<ul>
+<li>/etc/passwd  储存用户信息</li>
+<li>/etc/group  储存用户组信息</li>
+<li>/etc/shadow  储存密码信息</li>
+</ul>
+</li>
+</ul>
+<h4 id="_20">用户管理</h4>
+<ul>
+<li>
+<p>添加用户</p>
+<ul>
+<li>useradd -选项 （选项内容） 用户名  ：添加用户</li>
+<li>e.g. useradd -g 501 -G 500 -u 666 test</li>
+<li>
+<p>选项 </p>
+<ul>
+<li>-g 指定用户的用户主组 可以是用户组的id或者组名</li>
+<li>-G 指定用户的用户附加组</li>
+<li>-u uid，用户id（用户可自定义用户id）</li>
+<li>-c 添加用户的注释</li>
+</ul>
+</li>
+<li>
+<p>验证是否添加成功</p>
+<ul>
+<li>查看 /etc/passwd （里面会显示主组的id）</li>
+<li>查看 /home/ 里面有没有新文件夹</li>
+<li>查看 /etc/group ，里面可查看附加组的信息</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>修改用户</p>
+<ul>
+<li>usermod -选项 （内容） 用户名</li>
+<li>选项<ul>
+<li>-g 指定用户的用户主组 可以是用户组的id或者组名</li>
+<li>-G 指定用户的用户附加组</li>
+<li>-u uid，用户id（用户可自定义用户id）</li>
+<li>-c 添加用户的注释</li>
+<li>-l 修改后的用户名（修改用户名，家目录不变）</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>设置密码</p>
+<ul>
+<li>passwd 用户名<ul>
+<li>命令行继续输入密码即可</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>切换用户</p>
+<ul>
+<li>su 用户名 切换到用户</li>
+<li>su  切换到root</li>
+</ul>
+</li>
+<li>
+<p>删除用户</p>
+<ul>
+<li>userdel 用户名（用户需要退出登录）</li>
+<li>选项 <ul>
+<li>-r 删除用户的同时，删除其家目录</li>
+</ul>
+</li>
+<li>已经登录的用户<ul>
+<li>先查看其用户进程 <ul>
+<li>ps -ef | grep 用户名</li>
+</ul>
+</li>
+<li>关闭用户进程<ul>
+<li>kill 用户进程id</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="_21">用户组管理</h4>
+<p>创建用户时，要是没有指定用户组，系统会自动添加对应用户组<br />
+用户必须要有用户组
+- 用户组添加
+    - groupadd -选项 用户组名
+    - 选项
+        - -g 设置用户组id</p>
+<ul>
+<li>
+<p>用户组编辑</p>
+<ul>
+<li>groupmod -选项 用户组名</li>
+<li>选项 <ul>
+<li>-g 设置用户组id</li>
+<li>-n 修改新名字</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>用户组删除</p>
+<ul>
+<li>groupdel 用户组（用户组内不能有用户）<ul>
+<li>需要先删除组内用户，或移走用户</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2 id="_22">网络设置及服务</h2>
+<h3 id="_23">网卡配置</h3>
+<ul>
+<li>
+<p>网卡配置文件位置</p>
+<ul>
+<li>目录：/etc/sysconfig/network-scripts （系统配置，网络列表）</li>
+<li>配置文件命名格式：ifcfg-网卡名称<ul>
+<li>文件内容：<ul>
+<li>ONBOOT：开机启动</li>
+<li>BOOTPROTO：ip地址分配方式，DHCP表示动态分配协议</li>
+<li>HWADDR：硬件地址，即MAC地址</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>网卡操作</p>
+<ul>
+<li>重启网卡<ul>
+<li>service network restart 重启网络服务</li>
+<li>/etc/init.d/network restart 同上</li>
+</ul>
+</li>
+<li>停止某网卡<ul>
+<li>ifdown 网卡名</li>
+</ul>
+</li>
+<li>打开某网卡<ul>
+<li>ifup 网卡名</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2 id="ssh-secure-shell">SSH 服务（secure shell，安全协议）</h2>
+<ul>
+<li>
+<p>主要功能：远程连接协议，远程传输协议<br />
+协议端口：22</p>
+</li>
+<li>
+<p>服务启动/停止/重启</p>
+<ul>
+<li>service sshd start/stop/restart</li>
+<li>/etc/init.d/sshd start/stop/restart</li>
+</ul>
+</li>
+</ul>
+<h3 id="_24">远程终端连接</h3>
+<ul>
+<li>
+<p>终端工具 ：Xshell，secureCRT，Putty等<br />
+以下以Putty为例</p>
+</li>
+<li>
+<p>操作步骤</p>
+<ul>
+<li>先获取服务器ip地址</li>
+<li>在win下尝试ping通</li>
+<li>在putty中进行打开</li>
+</ul>
+</li>
+</ul>
+<h3 id="_25">远程文件传输</h3>
+<ul>
+<li>
+<p>文件：filezilla</p>
+<ul>
+<li>安装好之后，新建站点，选择SFTP，连接</li>
+<li>可将本地文件传到服务器，也可以将服务器下载到本地</li>
+</ul>
+</li>
+<li>
+<p>文件：PSCP（与Putty一个公司的）</p>
+<ul>
+<li>需要用CMD打开</li>
+<li>pscp -选项 用户名@主机地址：资源地址 本地地址（下载）</li>
+<li>pscp -选项 本地地址 用户名@主机地址：远程地址（上传）</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2 id="chkconfig">chkconfig</h2>
+<p>开机启动项管理<br />
+centos 7 之后已弃用，详情搜索百度<br />
+设置自启动：systemctl enable httpd.service</p>
+<hr />
+<h2 id="ntp">ntp 服务</h2>
+<p>同步时间<br />
+- 一次性手动操作：
+    - ntpdate 时间服务器ip
+    - e.g. ntpdate 120.25.108.11 （阿里云）</p>
+<ul>
+<li>启动 ntpd 服务，自动校准时间</li>
+</ul>
+<hr />
+<h2 id="_26">防火墙</h2>
+<p>centos 7 之后防火墙是 firewall（firewalld）<br />
+打开关闭与其他服务一样<br />
+关闭服务之后，在win下也可以进入ip页面<br />
+设置防火墙支持80端口通过：自己看百度</p>
+<hr />
+<h2 id="rpm">rpm 管理</h2>
+<p>作用：管理linux软件<br />
+- 查询已安装软件
+    - rpm -qa 查询结果非常多，一般进行grep过滤
+        - -q 查询
+        - -a all全部</p>
+<ul>
+<li>
+<p>卸载已装的软件</p>
+<ul>
+<li>rpm -e 软件名<ul>
+<li>-e 卸载</li>
+</ul>
+</li>
+<li>rpm -e 软件名 --nodeps<ul>
+<li>--nodeps 存在依赖关系时，忽略依赖关系</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>安装软件</p>
+<ul>
+<li>方式1：不介意版本，可以从光盘中读取<ul>
+<li>lsblk （list block devices） 查看设备（光盘）</li>
+<li>在光盘文件的packages目录下</li>
+<li>安装<ul>
+<li>rpm -ivh 软件包完整名称<ul>
+<li>-i 安装</li>
+<li>-v 显示进度条</li>
+<li>-h 以"#"方式显示进度条</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>方式2：自己上网下载</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2 id="cron">cron 计划任务</h2>
+<ul>
+<li>
+<p>crontab -选项</p>
+<ul>
+<li>-l list显示</li>
+<li>-e edit编辑</li>
+<li>-u user 指定用户</li>
+<li>-r 输出用户计划列表</li>
+</ul>
+</li>
+<li>
+<p>编辑计划 crontab -e</p>
+<ul>
+<li>语法：<ul>
+<li>以行为单位，一行为一个计划</li>
+<li>分 时 日 月 周 命令<ul>
+<li>周日为 0 或 7 </li>
+<li>"<em>"，全部。每小时则在时的位置输入 </em>（星号）。每年月日以此类推</li>
+<li>"-"，区间。区间1到7点，则在时的位置输入 1-7 </li>
+<li>/ 表示每多少个。每十分钟 */10</li>
+<li>， 表示多点取值。1，2，3</li>
+</ul>
+</li>
+<li>e.g. 每天0点重启<ul>
+<li>0 0 * * * reboot</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>cron权限</p>
+<ul>
+<li>默认所有人都可以添加cron</li>
+<li>限制权限<ul>
+<li>在 /etc/cron.deny 里面写用户名，一行一个</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2 id="linux_3">Linux 权限</h2>
+<h3 id="_27">用户身份权限</h3>
+<ul>
+<li>
+<p>三种身份</p>
+<ul>
+<li>owner 文件所有者，一般为创建者</li>
+<li>Group 文件所属用户组</li>
+<li>others 其他人</li>
+<li>三种权限由高到低</li>
+</ul>
+</li>
+<li>
+<p>文件权限</p>
+<ul>
+<li>分类<ul>
+<li>r：读</li>
+<li>w：写</li>
+<li>x/e：执行</li>
+</ul>
+</li>
+<li>ls -l 或者 ll<ul>
+<li>第一个是文件/文件夹/快捷方式：-/d/l</li>
+<li>2-4：owner权限</li>
+<li>5-7：group权限</li>
+<li>8-10：others权限</li>
+<li>e.g. drwxr-x---</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>权限设置</p>
+<ul>
+<li>chmod -选项 权限模式 文档<ul>
+<li>-R：递归，用于文件夹</li>
+</ul>
+</li>
+<li>只有 root 和 owner 可以设置权限</li>
+<li>详细修改规则见百度</li>
+</ul>
+</li>
+<li>
+<p>属主和属组权限</p>
+<ul>
+<li>属主：文件所属的用户</li>
+<li>属组：所属的用户组</li>
+<li>ls -l 查看时，第一个名字是属主，第二个是属组</li>
+<li>chown 更改文档的属主<ul>
+<li>chown （-R） username 文件路径</li>
+</ul>
+</li>
+<li>chgrp 更改文档的属组<ul>
+<li>chgrp （-R） groupname 文件路径</li>
+</ul>
+</li>
+<li>同时更改属主和属组<ul>
+<li>chown （-R） username:groupname 文件路径</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h3 id="sudo">sudo</h3>
+<p>sudo 可以让 root 事先定义某些特殊指令谁可以执行<br />
+默认 sudo 里是没有任何命令的，需要 root 提前配置
+- 文件配置地址
+    - /etc/sudoers 文件
+    - 但该文件无法直接编辑！！！</p>
+<ul>
+<li>
+<p>配置sudo</p>
+<ul>
+<li>
+<h1 id="visudo-sudovim">visudo 用特殊的方法打开sudo，操作类似vim</h1>
+</li>
+<li>其中有一个例子：root  ALL=(ALL)   ALL<ul>
+<li>root 用户名，用户组可以写 ：%组名</li>
+<li>ALL 地址白名单</li>
+<li>(ALL) 以谁的身份执行，ALL表示root</li>
+<li>ALL 可执行命令，多命令用","分隔</li>
+</ul>
+</li>
+<li>一般是 <em>用户名</em> 和 <em>命令</em> 需要设置<ul>
+<li>在写命令时，不建议直接写命令内容，而是写入命令的完整路径<ul>
+<li>查看命令完整路径的方法：#which 命令</li>
+</ul>
+</li>
+<li>对于不希望执行的命令：!命令</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>sudo 使用</p>
+<ul>
+<li>在使用sudo命令时，要 $sudo 命令</li>
+<li>需要输入密码的话，输入当前用户的密码，即验证密码</li>
+</ul>
+</li>
+<li>
+<p>查看sudo权限</p>
+<ul>
+<li>sudo -l</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2 id="linux_4">Linux 网络</h2>
+<h3 id="_28">网络命令</h3>
+<ul>
+<li>
+<p>ping</p>
+<ul>
+<li>ping ip 检测连通性</li>
+</ul>
+</li>
+<li>
+<p>netstat 查看网络连接情况</p>
+<ul>
+<li>netstat -ntpl </li>
+<li>ntestat -na<ul>
+<li>-a 全部</li>
+<li>-n 将字母转化为数字</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>traceroute 查找当前主机与目标主机之间的所有的网关</p>
+<ul>
+<li>traceroute 主机ip</li>
+</ul>
+</li>
+<li>
+<p>arp 地址解析协议，根据ip地址获取mac地址</p>
+<ul>
+<li>arp -a 查看本地缓存的mac地址</li>
+<li>arp -d ip地址 删除缓存的该ip下的mac地址</li>
+</ul>
+</li>
+<li>
+<p>tcpdump 抓包</p>
+<ul>
+<li>tcpdump 协议 port 端口</li>
+<li>tcpdump 协议 port 端口 host 地址</li>
+<li>tcpdump -i 网卡设备名</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2 id="_29">项目上线</h2>
+<p>线上服务器必须是外网服务器
+- 云服务器
+- 域名
+    - 域名购买
+    - 域名备案
+    - 域名解析
+        - 解析：将域名绑定到一个服务器地址的操作
+        - DNS：将域名转化为ip地址的服务器</p>
+<hr />
+<h2 id="shell">Shell</h2>
+<p>Linux 中默认的 shell 是 /bin/bash ！！！<br />
+shell 的种类非常多，目前以 bash 为主</p>
+<h3 id="_30">编写规范</h3>
+<ul>
+<li>
+<p>在文档开头，要写入以下内容</p>
+<ul>
+<li>
+<h1 id="binbash">!/bin/bash</h1>
+<ul>
+<li>
+<h1 id="_31">后面的是注释</h1>
+</li>
+<li>告知系统当前脚本要使用的shell解释器</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>文件命名 </p>
+<ul>
+<li>文件名.sh  <ul>
+<li>.sh 是bash默认后缀</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>文件运行</p>
+<ul>
+<li>bash 文件路径 or sh 文件路径</li>
+<li>直接输入路径（可能会因为权限无法运行）<ul>
+<li>修改权限：chmod a+x 文件路径</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>例一：输出 hello world
+    <code>shell
+    #!/bin/bash  
+    echo "hello world"</code></p>
+<ul>
+<li>echo 表示输出</li>
+</ul>
+</li>
+<li>
+<p>例二：创建用户shelltest，并在其家目录创建文件try.html
+    <code>shell
+    #!/bin/bash
+    useradd shelltest
+    touch /home/shelltest/try.html</code></p>
+<ul>
+<li>简单的 shell 命令和直接在终端输入的一样</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h3 id="_32">变量</h3>
+<p>变量要先定义，后使用<br />
+- 例三：创建并使用变量
+    <code>shell
+    a="abc"
+    echo $a</code>
+    - 在使用变量的时候，一定要加上 "$" ！！！！！！
+    - 在定义变量时，"=" 左右不能有空格 ！！！！！！</p>
+<ul>
+<li>
+<p>引号</p>
+<ul>
+<li>双引号可以试别里面的变量，并且可以实现转义 ！！！</li>
+<li>单引号不能试别变量，即原样输出，也不能转义 ！！！</li>
+<li>反引号(`,esc下面)，在脚本中需要将执行的指令的结果赋给变量时使用 ！！！</li>
+</ul>
+</li>
+<li>
+<p>例四：输出格式化时间
+    <code>shell
+    #!/bin/bash
+    dt=`date +"%F %T"`
+    echo $dt</code></p>
+<ul>
+<li>注意反引号的用法 ！！！</li>
+</ul>
+</li>
+<li>
+<p>只读变量</p>
+<ul>
+<li>readonly 变量名 （不需要加$）</li>
+<li>在定义好变量之后，使用readonly命令</li>
+</ul>
+</li>
+<li>
+<p>删除变量</p>
+<ul>
+<li>unset 变量名</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h1 id="_33">数组</h1>
+<ul>
+<li>
+<p>用法</p>
+<ul>
+<li>arr=(1 2 3 4 5)</li>
+</ul>
+</li>
+<li>
+<p>输出</p>
+<ul>
+<li>echo $arr 时，只会输出第一个元素</li>
+<li>echo ${arr[1]} 输出第二个元素<ul>
+<li>$,{ },[ ] 都缺一不可</li>
+</ul>
+</li>
+<li>echo ${arr[@]} 输出全部元素<ul>
+<li>@ 的作用是全部元素</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h3 id="_34">输出、输入</h3>
+<ul>
+<li>
+<p>输出 echo</p>
+<ul>
+<li>输出变量时，要在变量前加上$</li>
+</ul>
+</li>
+<li>
+<p>输入 read</p>
+<ul>
+<li>read -p 提示信息 变量名</li>
+</ul>
+</li>
+<li>
+<p>例五：用户输入路径，为用户创建文件
+    <code>shell
+    #!/bin/bash
+    read -p "please input filepath :" filepath
+    touch $filepath
+    echo "file is done"</code></p>
+<ul>
+<li>路径必须存在</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h3 id="_35">条件判断</h3>
+<ul>
+<li>
+<p>语法1
+    <code>shell
+    if [ condition ] 
+    then
+        command1
+        command2
+        ...
+    fi</code></p>
+<ul>
+<li>condition 是条件，条件要拿 [ ] 包起来，并且中括号两边都要有空格</li>
+<li>command 是条件成立时执行的语句</li>
+<li>fi 表示结束</li>
+<li>单行写法
+    <code>shell
+    if [condition];then command;fi</code></li>
+</ul>
+</li>
+<li>
+<p>语法2
+    <code>shell
+    if [ condition ] 
+    then
+        command1
+        command2
+        ...
+    else 
+        command
+    fi</code></p>
+</li>
+<li>
+<p>语法3
+    <code>shell
+    if [ condition1 ]
+    then
+        command1
+    elif [ condition2 ]
+    then
+        command2
+    else 
+        command3
+    fi</code></p>
+</li>
+</ul>
+<hr />
+<h3 id="_36">循环</h3>
+<ul>
+<li>
+<p>for 循环</p>
+<ul>
+<li>
+<p>语法1
+    <code>shell
+    for x in 1 2 3 
+    do
+        command
+    done</code></p>
+</li>
+<li>
+<p>语法2
+    <code>shell
+    for i in {1..10}  
+    do  
+        command 
+    done</code></p>
+</li>
+<li>
+<p>语法3
+    <code>shell
+    for ((i=1;i&lt;=10;i++))
+    do   
+        command
+    done</code></p>
+</li>
+<li>
+<p>语法4
+    <code>shell
+    for i in `ls` `pwd`
+    do   
+        echo $i
+    done</code></p>
+</li>
+</ul>
+</li>
+<li>
+<p>while 循环</p>
+<ul>
+<li>语法
+    <code>shell
+    while [ condition ]
+    do
+        command
+    done</code></li>
+</ul>
+</li>
+</ul>
+<hr />
+<h3 id="_37">运算符</h3>
+<p>表达式和运算符之间，除了赋值，其它一定要有空格！！！！！！<br />
+完整的运算要拿 <code>`(反括号) 包起来
+- 算术运算符  
+在 shell 中并不支持简单的数学运算，因此需要用 expr 命令来实现  
+    - "+" 加法
+        ```shell</code>expr 2 + 3`
+        ```</p>
+<pre><code>- "-" 剪法
+    ```shell
+    `expr 3 - 2`
+    ```
+
+- "*" 乘法
+    ```shell
+    `expr 2 \* 3`
+    ```
+    - 此时的 * 与通配符冲突，因此要用转义字符 \*
+
+- "/" 除法，默认取整
+    ```shell
+    `expr 3 / 2`
+    ```
+
+- "%" 取余
+    ```shell
+    `expr 3 % 2`
+    ```
+
+- "=" 赋值
+    ```shell
+    a=$b
+    ```
+
+- "==" 相等
+    ```shell
+    [ $a == $b ]
+    ```
+    - 注意空格
+
+- "!=" 不相等
+    ```shell
+    [ $a != $b ]
+    ```
+    - 注意空格
+</code></pre>
+<hr />
+<ul>
+<li>
+<p>关系运算符<br />
+关系运算符只支持数字之间的判断</p>
+<ul>
+<li>
+<p>"-eq" 检测数字是否相等,equal
+    <code>shell
+    [ $a -eq $b ]</code></p>
+<ul>
+<li>注意空格</li>
+</ul>
+</li>
+<li>
+<p>"-ne" 检测数字是否不相等,not equal
+    <code>shell
+    [ $a -ne $b ]</code></p>
+<ul>
+<li>注意空格</li>
+</ul>
+</li>
+<li>
+<p>"-gt" 检测左边是否大于右边,great than
+    <code>shell
+    [ $a -gt $b ]</code></p>
+<ul>
+<li>注意空格</li>
+</ul>
+</li>
+<li>
+<p>"-lt" 检测左边是否小于右边,less than
+    <code>shell
+    [ $a -lt $b ]</code></p>
+<ul>
+<li>注意空格</li>
+</ul>
+</li>
+<li>
+<p>"-ge" 检测左边是否大于等于右边,great than or equal
+    <code>shell
+    [ $a -ge $b ]</code></p>
+<ul>
+<li>注意空格</li>
+</ul>
+</li>
+<li>
+<p>"-le" 检测左边是否小于等于右边,less than or equal
+    <code>shell
+    [ $a -le $b ]</code></p>
+<ul>
+<li>注意空格</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr />
+<ul>
+<li>
+<p>逻辑运算符<br />
+布尔运算</p>
+<ul>
+<li>
+<p>"!" 非运算
+    <code>shell
+    [ ! false ]</code></p>
+</li>
+<li>
+<p>"-o" 或运算
+    <code>shell
+    [ a -o b ]</code></p>
+</li>
+<li>
+<p>"-a" 与运算
+    <code>shell
+    [ a -a b ]</code></p>
+</li>
+</ul>
+</li>
+</ul>
+<hr />
+<ul>
+<li>
+<p>字符串运算符<br />
+只能用于判断字符串之间的关系</p>
+<ul>
+<li>
+<p>"=" 字符串是否相等
+    <code>shell
+    [ $a = $b ]</code></p>
+</li>
+<li>
+<p>"!=" 字符串是否不相等
+    <code>shell
+    [ $a != $b ]</code></p>
+</li>
+<li>
+<p>"-z" 字符串长度是否为0
+    <code>shell
+    [ -z $a ]</code></p>
+</li>
+<li>
+<p>"-n" 字符串长度是否不为0
+    <code>shell
+    [ -n $a ]</code></p>
+</li>
+<li>
+<p>"" 字符串是否为空
+    <code>shell
+    [ $a ]</code></p>
+</li>
+</ul>
+</li>
+</ul>
+<hr />
+<ul>
+<li>
+<p>文件测试运算符<br />
+用于检测文件的属性</p>
+<ul>
+<li>
+<p>"-b" 检测文件是否是块状设备文件（u盘等）
+    <code>shell
+    [ -b $file ]</code></p>
+</li>
+<li>
+<p>"-c" 检测文件是否是字符设备文件
+    <code>shell
+    [ -c $file ]</code></p>
+</li>
+<li>
+<p>"-d" 检测文件是否是目录
+    <code>shell
+    [ -d $file ]</code></p>
+</li>
+<li>
+<p>"-f" 检测文件是否是普通文件
+    <code>shell
+    [ -f $file ]</code></p>
+</li>
+<li>
+<p>"-r" / "-w" / "-x"  检测文件是否可读，可写，可执行
+    <code>shell
+    [ -r $file ]</code></p>
+</li>
+<li>
+<p>"-s" 检测文件是否为空
+    <code>shell
+    [ -s $file ]</code></p>
+</li>
+<li>
+<p>"-e" 检测文件（目录）是否存在
+    <code>shell
+    [ -e $file ]</code></p>
+</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h3 id="_38">参数</h3>
+<p>在 shell 中，可以用 $ 加数字的方法传递参数<br />
+- $0 表示文件自身
+- $n n表示数字，代表传递的第几个参数
+    - 在 shell 中 $n 就代表了传递进来的参数（变量）</p>
+<hr />
+<h2 id="_39">数据库</h2>
+<h3 id="_40">安装</h3>
+<ul>
+<li>yum install mysql-server<ul>
+<li>安装服务器端MySQL</li>
+</ul>
+</li>
+<li>数据库储存位置<ul>
+<li>/var/lib/mysql</li>
+</ul>
+</li>
+<li>配置文件<ul>
+<li>/etc/my.cnf</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h3 id="_41">初始化</h3>
+<ul>
+<li>service mysqld start<ul>
+<li>先启动</li>
+</ul>
+</li>
+<li>mysql_secure_installation<ul>
+<li>先输入数据库密码（没有直接回车）</li>
+<li>若没有密码，则设置密码</li>
+<li>移除匿名用户</li>
+<li>允许远程登录（输入n）</li>
+<li>不移除测试数据库</li>
+<li>重新加载权限表</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h3 id="_42">启动</h3>
+<ul>
+<li>service mysqld start<ul>
+<li>启动服务</li>
+</ul>
+</li>
+<li>mysql -u 用户名 -p <ul>
+<li>输入密码</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h3 id="_43">基础操作</h3>
+<p>MySQL中，以 ; 做为结束！！！
+- 库操作
+    - SHOW DATABASES;
+        - 显示
+    - CREATE DATABASE 库名;
+        - 创建
+    - DROP DATABASE 库名;
+        - 删除
+    - USE 库名;
+        - 切换</p>
+<ul>
+<li>
+<p>表操作</p>
+<ul>
+<li>SHOW TABLES;<ul>
+<li>显示</li>
+</ul>
+</li>
+<li>
+<p>CREATE TABLE 表名;
+    <code>CREATE TABLE 表名 
+    (
+        列名称1 数据类型 [NOT NULL AUTO_INCREMENT],
+        列名称2 数据类型,
+        ...,
+        PRIMARY KEY(主键)
+    );</code>  </p>
+<ul>
+<li>数据类型：<ul>
+<li>int() 整型，( )里填长度</li>
+<li>char() 定长字符</li>
+<li>varchar() 不定长字符</li>
+</ul>
+</li>
+<li>可选参数：<ul>
+<li>NOT NULL <ul>
+<li>非空</li>
+</ul>
+</li>
+<li>AUTO_INCREMENT<ul>
+<li>递增</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>DESC 表名;</p>
+<ul>
+<li>查看表结构</li>
+</ul>
+</li>
+<li>
+<p>DROP TABLE [IF EXISTS] 表名;</p>
+<ul>
+<li>删除表</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h3 id="_44">增删查改</h3>
+<ul>
+<li>
+<p>增</p>
+<ul>
+<li>INSERT INTO 表名 VALUES (值1，值2...);</li>
+<li>INSERT INTO 表名 (列1，列2...) VALUES (值1，值2...);</li>
+</ul>
+</li>
+<li>
+<p>改（更新）</p>
+<ul>
+<li>UPDATE 表名 SET 列1 = 值1 , 列2 = 值2 WHERE 列名称 = 之前的值;<ul>
+<li>WHERE 一定不能少！！！</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>查</p>
+<ul>
+<li>SELECT 列名 FORM 表名 WHERE 条件;</li>
+</ul>
+</li>
+<li>
+<p>删除</p>
+<ul>
+<li>DELETE FROM 表名 WHERE 列 = 值 ;<ul>
+<li>WHERE 一定不能少！！！</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h3 id="_45">备份与还原</h3>
+<h4 id="_46">备份</h4>
+<ul>
+<li>
+<p>全量备份</p>
+<ul>
+<li>
+<h1 id="mysqldump-u-root-p-123456-a">mysqldump -u root -p 123456 -A &gt; 备份文件路径</h1>
+<ul>
+<li>-A 全部数据库</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>指定库备份</p>
+<ul>
+<li>
+<h1 id="mysqldump-u-root-p-123456">mysqldump -u root -p 123456 库名 &gt; 备份文件路径</h1>
+<ul>
+<li>最常用</li>
+<li>备份时，文件后缀为 .sql</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>多库备份</p>
+<ul>
+<li>
+<h1 id="mysqldump-u-root-p-123456-databases-db1-db2">mysqldump -u root -p 123456 --databases db1 db2 &gt; 备份文件路径</h1>
+</li>
+</ul>
+</li>
+<li>
+<p>案例：每一分钟自动备份一次数据库</p>
+<ul>
+<li>先创建shell命令
+    <code>shell
+    #!/bin/bash
+    filename="sql_"`date +'%Y%m%d%H%M%S'`".sql"
+    mysqldump -u root -p 123456 test &gt; /root/$filename</code></li>
+<li>创建计划任务<ul>
+<li>
+<h1 id="crontab-e">crontab -e</h1>
+```shell</li>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>/root/save_sql.sh
+```</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="_47">还原</h4>
+<ul>
+<li>
+<p>还原全部数据库</p>
+<ul>
+<li>mysql 命令行：<ul>
+<li>source 备份文件路径;</li>
+</ul>
+</li>
+<li>shell 命令：<ul>
+<li>
+<h1 id="mysql-u-root-p-123456">mysql -u root -p 123456 &lt; 备份文件路径</h1>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>还原单个数据库</p>
+<ul>
+<li>mysql 命令行，（需要先指定库）    <ul>
+<li>use 库名;</li>
+<li>source 备份文件路径;</li>
+</ul>
+</li>
+<li>shell 命令<ul>
+<li>
+<h1 id="mysql-u-root-p-123456_1">mysql -u root -p 123456 库名 &lt; 备份文件路径</h1>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h3 id="_48">远程连接</h3>
+<ul>
+<li>步骤<ol>
+<li>先登录mysql，选择mysql库</li>
+<li>执行 ：select host,user from user;</li>
+<li>将其中一个记录的host改为的值 "%" ,表示允许任何地方登录</li>
+<li>刷新权限表，或者重启数据库<ul>
+<li>刷新权限 ：flush privileges;</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+<hr />
+<h2 id="_49">阿里项目实战</h2>
+<h3 id="nginx">nginx</h3>
+<ul>
+<li>
+<p>安装（编译安装）</p>
+<ul>
+<li>下载<ul>
+<li>找到下载地址，复制下载链接</li>
+<li>
+<h1 id="wget">wget 下载链接</h1>
+<ul>
+<li>直接下载到当前目录</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>解压<ul>
+<li>
+<h1 id="tar-zxvf">tar -zxvf 路径</h1>
+<ul>
+<li>容易报错，建议直接yum安装，或者百度</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>运行</p>
+<ul>
+<li>nginx 默认也是80端口，与apache一样</li>
+<li>先关闭apache服务</li>
+<li>运行 nginx/sbin/nginx<ul>
+<li>nginx 不能像apache一样服务启动，只能通过文件启动</li>
+</ul>
+</li>
+<li>重启 nginx/sbin/nginx -s reload </li>
+<li>关闭，只能用kill命令</li>
+</ul>
+</li>
+<li>
+<p>卸载（卸载编译安装的软件）</p>
+<ul>
+<li>先关闭软件</li>
+<li>
+<h1 id="rm-rf">rm -rf 软件安装目录</h1>
+</li>
+</ul>
+</li>
+</ul>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href=".." class="btn btn-neutral" title="index"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href=".." style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
