@@ -1,0 +1,2308 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>SQL_Oracle - bobo note</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../css/theme.css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "SQL_Oracle";
+    var mkdocs_page_input_path = "SQL.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> bobo note</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="..">index</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../Linux/">Linux_Centos</a>
+                    </li>
+                </ul>
+                <ul class="current">
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">SQL_Oracle</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#_1">命令组成</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#ddl">DDL 数据定义语言</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#dml">DML 数据操作语言</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#dql">DQL 数据查询语句</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#tcl">TCL 事务控制语句</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#dcl">DCL 数据控制语句</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#_2">数据类型</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#_3">数字类型</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_4">字符类型</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_5">日期类型</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#_6">建表</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#_7">直接建表法</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_8">间接建表法</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#_9">注释</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#_10">直接注释</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_11">间接注释</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#_12">修改表结构</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#_13">修改字段名称</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_14">修改表名</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_15">修改字段数据类型</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_16">增加字段</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_17">删除字段</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#_18">插入数据</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#_19">直接插入</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_20">间接插入</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#insert-all">INSERT ALL</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#insert-first">INSERT FIRST</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_21">用工具插入</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#_22">更新数据</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#_23">删除数据</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#_24">增删改注意</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#_25">约束</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#_26">主键</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_27">外键</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_28">非空约束</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_29">唯一约束</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_30">检查约束</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_31">建表时，在字段后设置约束</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_32">增加约束</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_33">删除约束</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_34">修改约束</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#_35">注意事项</a>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#_36">查询</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#_37">查询结构</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_38">聚合函数</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_39">连接查询</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#_40">内连接</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#_41">外连接</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_42">集合查询</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_43">子查询</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_44">查询用户下所有的表</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_45">递归查询</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#_46">判断</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#decode">DECODE</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#case-when">CASE WHEN</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#_47">行列转换</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#case-when_1">CASE WHEN 方法</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#_48">列行转换</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#union">UNION 方法</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#_49">伪列</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#like">模糊查询 LIKE</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#_50">字符函数</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#_51">数字函数</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#_52">日期函数</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#_53">使用</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#_54">数据类型转换函数</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#_55">空值转换函数</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#_56">分析函数</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#_57">和聚合函数一起</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_58">和排序函数一起用</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_59">和位移函数一起用</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#_60">同步数据</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#_61">增量同步</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_62">全量同步</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#_63">数据库对象</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#_64">序列</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_65">视图</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_66">索引</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_67">表分区</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#hints">HINTS</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_68">关联机制</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../git_read/">Git_github</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">bobo note</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>SQL_Oracle</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="sqloracle">SQL语句（ORACLE）</h1>
+<h2 id="_1">命令组成</h2>
+<h3 id="ddl">DDL 数据定义语言</h3>
+<p>针对对象结构的操作
+- CREATE
+    - 创建
+- ALTER
+    - 修改
+- DROP
+    - 删除
+- TRUNCATE
+    - 清空数据</p>
+<h3 id="dml">DML 数据操作语言</h3>
+<ul>
+<li>INSERT<ul>
+<li>插入数据</li>
+</ul>
+</li>
+<li>DELETE<ul>
+<li>删除数据</li>
+</ul>
+</li>
+<li>UPDATE<ul>
+<li>更新数据</li>
+</ul>
+</li>
+</ul>
+<h3 id="dql">DQL 数据查询语句</h3>
+<ul>
+<li>SELECT ... FROM ... WHERE ... GROUP BY ... HAVING ... ORDER BY</li>
+</ul>
+<h3 id="tcl">TCL 事务控制语句</h3>
+<ul>
+<li>COMMIT <ul>
+<li>提交</li>
+</ul>
+</li>
+<li>ROLLBACK<ul>
+<li>撤回</li>
+</ul>
+</li>
+</ul>
+<h3 id="dcl">DCL 数据控制语句</h3>
+<ul>
+<li>GRANT<ul>
+<li>授权</li>
+<li>GRANT 权限 TO 用户</li>
+</ul>
+</li>
+<li>REVOKE<ul>
+<li>撤销授权</li>
+<li>REVOKE 权限 FROM 用户</li>
+</ul>
+</li>
+</ul>
+<h2 id="_2">数据类型</h2>
+<h3 id="_3">数字类型</h3>
+<ul>
+<li>NUMBER<ul>
+<li>NUMBER(10)<ul>
+<li>最长为10的整数</li>
+</ul>
+</li>
+<li>NUMBER(10,2)<ul>
+<li>整数8位，小数2位，共10位</li>
+</ul>
+</li>
+<li>也可以不加数据长度，则使用默认长度</li>
+</ul>
+</li>
+</ul>
+<h3 id="_4">字符类型</h3>
+<ul>
+<li>CHAR<ul>
+<li>固定长度，不够用空格补齐</li>
+</ul>
+</li>
+<li>VARCHAR2<ul>
+<li>可变长度</li>
+<li>VARCHAR2(1 CHAR)<ul>
+<li>可加中文，且此时中文等价于占一个字节</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="_5">日期类型</h3>
+<ul>
+<li>DATE<ul>
+<li>DATE'2020-08-10'<ul>
+<li>插入的时候要这样！！！</li>
+</ul>
+</li>
+<li>TO_DATE('2020-08-10','YYYY-MM-DD')</li>
+</ul>
+</li>
+</ul>
+<h2 id="_6">建表</h2>
+<h3 id="_7">直接建表法</h3>
+<pre><code class="sql">CREATE TABLE STU (
+SNAME VARCHAR2(20),
+...
+);
+</code></pre>
+
+<h3 id="_8">间接建表法</h3>
+<ul>
+<li>CREATE TABLE STU_COPY AS SELECT * FROM STU WHERE 1=2;<ul>
+<li>只复制表结构（后面加上总是不成立的条件）</li>
+</ul>
+</li>
+</ul>
+<h2 id="_9">注释</h2>
+<h3 id="_10">直接注释</h3>
+<ul>
+<li>COMMENT ON TABLE STU IS 'STUDY TABLE'</li>
+<li>COMMENT ON COLUMN STU.SNAME IS 'STUDY NAME'</li>
+</ul>
+<h3 id="_11">间接注释</h3>
+<ul>
+<li>直接通过软件“edit”</li>
+</ul>
+<h2 id="_12">修改表结构</h2>
+<h3 id="_13">修改字段名称</h3>
+<ul>
+<li>ALTER TABLE STU RENAME COLUMN SNAME TO NAME;</li>
+</ul>
+<h3 id="_14">修改表名</h3>
+<ul>
+<li>ALTER TABLE STU RENAME TO SSTU;</li>
+</ul>
+<h3 id="_15">修改字段数据类型</h3>
+<ul>
+<li>ALTER TABLE STU MODIFY SNAME VARCHAR2(10);</li>
+</ul>
+<h3 id="_16">增加字段</h3>
+<ul>
+<li>ALTER TABLE STU ADD ID NUMBER(10);</li>
+</ul>
+<h3 id="_17">删除字段</h3>
+<ul>
+<li>ALTER TABLE STU DROP COLUMN ID;</li>
+</ul>
+<h2 id="_18">插入数据</h2>
+<h3 id="_19">直接插入</h3>
+<ul>
+<li>INSERT INTO STU(SNAME,ID) VALUES ('lily',1001);
+COMMIT;</li>
+</ul>
+<h3 id="_20">间接插入</h3>
+<ul>
+<li>INSERT INTO STU(SNAME,ID) SELECT SANME,ID FROM STU_COPY;
+COMMIT;</li>
+</ul>
+<h3 id="insert-all">INSERT ALL</h3>
+<ul>
+<li>
+<p>insert all into emp_1 into emp_2 select * from emp;</p>
+<ul>
+<li>将emp中数据复制给emp1和emp2.</li>
+</ul>
+</li>
+<li>
+<p>e.g. 将成绩是10的插入emp1中，将成绩小于40的插入emp2中</p>
+</li>
+</ul>
+<pre><code class="sql">insert all
+when score=10 then
+into emp_1
+when score&lt;40 then
+into emp_2
+select * from emp;
+</code></pre>
+
+<h3 id="insert-first">INSERT FIRST</h3>
+<ul>
+<li>在插入的时候考虑先后顺序，前面已经插入过的之后就不会插入了</li>
+<li>e.g. 部门10的数据插入到EMP_1中，把部门20，30数据都插入到EMP_2</li>
+</ul>
+<pre><code class="sql">INSERT FIRST
+WHEN DEPTNO=10 THEN 
+  INTO EMP_1
+WHEN DEPTNO&lt;40 THEN 
+INTO EMP_2
+SELECT * FROM EMP;
+</code></pre>
+
+<h3 id="_21">用工具插入</h3>
+<ul>
+<li>SELECT * FROM STU FOR UPDATE;</li>
+</ul>
+<h2 id="_22">更新数据</h2>
+<ul>
+<li>
+<p>UPDATE STU SET SNAME='tom' WHERE SNAME='lily';<br />
+COMMIT;</p>
+</li>
+<li>
+<p>子查询更新(要数据类型一样)</p>
+<ul>
+<li>update emp_1 set score=(select score from emp where emp.id=emp_1.id);</li>
+</ul>
+</li>
+</ul>
+<h2 id="_23">删除数据</h2>
+<ul>
+<li>DELETE FROM STU WHERE SNAME='lily';<br />
+COMMIT;</li>
+</ul>
+<hr />
+<h4 id="_24">增删改注意</h4>
+<p>增删改操作之后一定要 COMMIT !!!!!!!!!</p>
+<h2 id="_25">约束</h2>
+<h3 id="_26">主键</h3>
+<p>不能重复，不能为空
+- PRIMARY KEY</p>
+<h3 id="_27">外键</h3>
+<p>另一张表的主键
+- FOREIGN KEY
+    - REFERENCES 另一个表(PRI KEY)</p>
+<h3 id="_28">非空约束</h3>
+<p>不能为空
+- NOT NULL</p>
+<h3 id="_29">唯一约束</h3>
+<p>可以为空，但不能重复
+- UNIQUE</p>
+<h3 id="_30">检查约束</h3>
+<p>可以规定字段的长度，或者内容
+- CHECK 
+    - CHECK(SEX='M' OR SEX='F')</p>
+<hr />
+<h3 id="_31">建表时，在字段后设置约束</h3>
+<ul>
+<li>CONSTRAINT 约束名 约束<ul>
+<li>CONSTRAINT PRK PRIMARY KEY(ID)</li>
+<li>CONSTRAINT FRK FOREIGN KEY(CLASS) REFERENCES 另一个表(PRI KEY)</li>
+<li>CONSTRAINT CHK CHECK(SEX='M' OR SEX='F')</li>
+</ul>
+</li>
+</ul>
+<h3 id="_32">增加约束</h3>
+<ul>
+<li>ALTER TABLE STU ADD CONSTRAINT PRK PRIMARY KEY(ID)</li>
+</ul>
+<h3 id="_33">删除约束</h3>
+<ul>
+<li>ALTER TABLE STU DROP CONSTRAINT PRK</li>
+</ul>
+<h3 id="_34">修改约束</h3>
+<ul>
+<li>ALTER TABLE STU MODIFY ID NOT NULL</li>
+</ul>
+<hr />
+<h4 id="_35">注意事项</h4>
+<p>DROP 删除整个表结构<br />
+TRUNCATE 删除表内数据<br />
+DELETE 删除指定数据</p>
+<hr />
+<h2 id="_36">查询</h2>
+<p>SELECT ... +字段 + 表达式+带出来的字段<br />
+FROM ... <br />
+WHERE ... +表达式<br />
+GROUP BY ... +字段（多个字段也可以）+表达式<br />
+HAVING ... <br />
+ORDER BY...  <br />
+顺序：512346</p>
+<h3 id="_37">查询结构</h3>
+<ul>
+<li>
+<p>SELECT</p>
+<ul>
+<li>可以跟  字段、表达式</li>
+<li>SELECT E.ID,E.NAME FROM EMP E;<ul>
+<li>表名后面可以加别名</li>
+</ul>
+</li>
+<li>E.G.
+<code>SQL
+SELECT ENAME||'的职位是 '||JOB 职位 FROM EMP</code>  </li>
+<li>
+<p>|| 连接符，连接符内可以加字符</p>
+</li>
+<li>
+<p>E.G.
+<code>SQL
+SELECT ENAME ,SAL ,COMM ,SAL+ NVL(COMM,0) 薪水 FROM EMP</code></p>
+</li>
+<li>NULL<ul>
+<li>NULL不参与计算</li>
+<li>NVL(字段 ,空值时的默认值 )</li>
+<li>NVL2(字段 ,不为空时的默认值 ,空值时的默认值 )</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>WHERE</p>
+<ul>
+<li>表条件，可以用AND / OR 连接</li>
+<li>E.G.
+<code>SQL
+SELECT * FROM EMP
+WHERE SAL &gt; 1500 AND COMM IS NOT NULL;</code></li>
+<li>IN
+<code>SQL
+SELECT * FROM EMP WHERE JOB IN('MANAGER','SALEMAN');</code></li>
+</ul>
+</li>
+<li>
+<p>GROUP BY</p>
+<ul>
+<li>E.G. 根据班级计算平均值
+<code>SQL 
+SELECT CLASS ,AVG(SCORE)
+FROM STU
+GROUP BY CLASS;</code></li>
+<li>
+<p>E.G.
+<code>SQL
+SELECT TO_CHAR(DATE,'YYYY'),COUNT(1) 
+FROM EMP
+GROUP BY TO_CHAR(DATE,'YYYY');</code></p>
+</li>
+<li>
+<p>GROUP BY 后面可以接两个参数，表示按顺序分组</p>
+</li>
+<li>
+<p>ROLLUP 求和 </p>
+<ul>
+<li>后面加上 ROLLUP()</li>
+<li>GROUP BY ROLLUP(SAL)</li>
+<li>ROLLUP 可以接两个参数，按第一个参数求和</li>
+</ul>
+</li>
+<li>CUBE 多维度求和<ul>
+<li>使用方法与 ROLLUP 一样</li>
+<li>当 CUBE 后面接两个参数时，分组求和的时候会按每个参数都求和</li>
+</ul>
+</li>
+<li>GROUPING 判断是否为总计<ul>
+<li>GROUPING(字段) 判断该字段的该值是否是总计<ul>
+<li>总计返回 1 ；非总计返回 0</li>
+</ul>
+</li>
+<li>结合 CASE WHEN 补全查询结果表</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>HAVING</p>
+<ul>
+<li>E.G.
+<code>SQL
+SELECT CLASS , COUNT(1) FROM STU
+GROUP BY CLASS
+HAVING COUNT(1)&gt;3;</code></li>
+</ul>
+</li>
+<li>
+<p>ORDER BY</p>
+<ul>
+<li>E.G.
+<code>SQL
+SELECT CLASS , SCORE
+FROM STU
+ORDER BY SCORE ASC ,CLASS DESC;</code></li>
+<li>ASC 升序，默认</li>
+<li>DESC 降序</li>
+<li>将 NULL 放在最前面 / 最后面<ul>
+<li>ORDER BY SAL NULLS FIRST / LAST ;</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="_38">聚合函数</h3>
+<ul>
+<li>max/min</li>
+<li>avg</li>
+<li>sum </li>
+<li>count<ul>
+<li>COUNT(1) = COUNT(*) = COUNT(ID)</li>
+</ul>
+</li>
+</ul>
+<h3 id="_39">连接查询</h3>
+<h4 id="_40">内连接</h4>
+<p>交集<br />
+- 标准写法
+    <code>SQL
+    SELECT E.* ,D.*
+    FROM EMP E
+    INNER JOIN DEPT D
+    ON E.DEPTNO = D.DEPTNO</code></p>
+<ul>
+<li>ORACLE 写法
+    <code>SQL
+    SELECT E.* ,D.* 
+    FROM EMP E ,DEPT D
+    WHERE E.DEPTNO = D.DEPTNO</code></li>
+</ul>
+<h4 id="_41">外连接</h4>
+<ul>
+<li>
+<p>左外连接</p>
+<ul>
+<li>LEFT JOIN
+<code>SQL
+SELECT E.* ,D.*
+FROM EMP E
+LEFT JOIN DEPT D
+ON E.DEPTNO = D.DEPTNO</code></li>
+<li>ORACLE 写法
+    <code>SQL
+    SELECT E.* ,D.* FROM DEPT D ,EMP E WHERE D.DEPTNO = E.DEPTNO(+)</code><ul>
+<li>带 + 的是从表</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>右外连接</p>
+</li>
+<li>
+<p>全外连接</p>
+<ul>
+<li>FULL JOIN
+<code>SQL
+SELECT D.* ,E.* 
+FROM DEPT D
+FULL JOIN EMP E
+ON D.DNAME = E.ENAME</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="_42">集合查询</h3>
+<p>并集
+- UNION ALL 常用
+- UNION  去重，效率低，不常用
+- E.G.</p>
+<pre><code class="SQL">SELECT DEPTNO FROM EMP
+UNION
+SELECT DEPTNO FROM DEPT;
+</code></pre>
+
+<h3 id="_43">子查询</h3>
+<p>把查询的结果当条件<br />
+- SELECT  UPDATE  DELETE
+    - 后面都可以接子查询</p>
+<ul>
+<li>
+<p>单行子查询</p>
+<ul>
+<li>可以直接用等号（数据类型要相等）</li>
+<li>SELECT * FROM EMP WHERE (SAL,JOB)=(SELECT SAL,JOB FROM EMP WHERE EMPNO=7782)</li>
+</ul>
+</li>
+<li>
+<p>多行子查询</p>
+<ul>
+<li>用 in ，表示在其中之一</li>
+<li>数据量大的时候，用 exists </li>
+</ul>
+</li>
+<li>
+<p>EXISTS</p>
+<ul>
+<li>EXISTS 用于检查子查询是否至少会返回一行数据，该子查询实际上并不返回任何数据，而是返回值True或False.</li>
+<li>EXISTS 指定一个子查询，检测 行 的存在</li>
+<li>
+<p>EXISTS 实际上就是关联子查询（指子查询部分不能单独运行）</p>
+<ul>
+<li>E.G.
+<code>SQL
+SELECT D.DNAME
+FROM DEPT D
+WHERE EXISTS (SELECT 1 FROM EMP E WHERE E.DEPTNO=D.DEPTNO);</code></li>
+<li>EXISTS 这里起判断的作用</li>
+</ul>
+</li>
+<li>
+<p>在子查询中使用 NULL 仍然返回结果集</p>
+<ul>
+<li>E.G.
+<code>SQL
+select * from TableIn where exists(select null);</code></li>
+</ul>
+</li>
+<li>
+<p>比较使用 EXISTS 和 IN 的查询。注意两个查询返回相同的结果。</p>
+<ul>
+<li>E.G.
+<code>SQL
+select * from TableIn where exists(select BID from TableEx where BNAME=TableIn.ANAME);
+select * from TableIn where ANAME in(select BNAME from TableEx);</code></li>
+</ul>
+</li>
+<li>
+<p>EXISTS 去重 </p>
+<ul>
+<li>E.G. 在每个部门中，选取入职最晚的
+<code>SQL
+SELECT E.* FROM EMP E WHERE NOT EXISTS 
+(SELECT * FROM EMP M WHERE E.DEPTNO=M.DEPTNO AND E.HIREDATE&lt;M.HIREDATE);
+-- DEPTNO 是选取的指标 , HIREDATE 是去重条件</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="_44">查询用户下所有的表</h3>
+<pre><code class="SQL">SELECT TABLE_NAME FROM ALL_TABLES WHERE USER = 'SCOTT';
+</code></pre>
+
+<h3 id="_45">递归查询</h3>
+<pre><code class="SQL">SELECT ... FROM ...
+[WHERE ...]
+START WITH ID=... [OR ID=...]  -- 可以指定多个节点
+CONNECT BY PRIOR PID=ID; --PID 在前，则表示从子向父查；ID在前，从父向子查
+</code></pre>
+
+<ul>
+<li>E.G. 查询7369的领导，及其领导的领导。。。</li>
+</ul>
+<pre><code class="SQL">SELECT * FROM EMP
+START WITH EMPNO=7369
+CONNECT BY PRIOR MGR=EMPNO;
+</code></pre>
+
+<h2 id="_46">判断</h2>
+<h3 id="decode">DECODE</h3>
+<p>单值判断函数
+- E.G.
+    <code>SQL
+    SELECT DECODE(N,
+    1，111，
+    2，222，
+    3，333，
+    0)
+    FROM EMP;</code>
+    - N:被判断的内容
+    - 1，111，:若等于1，则等于后面的111
+    - 0：都不相等的默认值</p>
+<h3 id="case-when">CASE WHEN</h3>
+<p>多值判断函数</p>
+<pre><code class="SQL">CASE WHEN ... THEN ...
+    WHEN ... THEN ...
+    ...
+    ELSE ...
+END
+</code></pre>
+
+<h2 id="_47">行列转换</h2>
+<h3 id="case-when_1">CASE WHEN 方法</h3>
+<ul>
+<li>E.G.</li>
+</ul>
+<pre><code class="SQL">SELECT Y , 
+SUM(CASE WHEN Q=1 THEN AMT ELSE 0 END) Q1,
+SUM(CASE WHEN Q=2 THEN AMT ELSE 0 END) Q2,
+SUM(CASE WHEN Q=3 THEN AMT ELSE 0 END) Q3,
+SUM(CASE WHEN Q=4 THEN AMT ELSE 0 END) Q4
+FROM S
+GROUP BY Y;
+</code></pre>
+
+<h2 id="_48">列行转换</h2>
+<h3 id="union">UNION 方法</h3>
+<ul>
+<li>E.G.</li>
+</ul>
+<pre><code class="SQL">SELECT Y,1 Q ,Q1 AMT FROM S_1
+UNION ALL
+SELECT Y,2 Q ,Q2 AMT FROM S_1
+UNION ALL
+SELECT Y,3 Q ,Q3 AMT FROM S_1
+UNION ALL
+SELECT Y,4 Q ,Q4 AMT FROM S_1
+ORDER BY Y,Q;
+</code></pre>
+
+<ul>
+<li>E.G.</li>
+</ul>
+<pre><code class="SQL">SELECT NAME ,'语文' SUB ,语文 SCORE FROM STU_SCORE
+UNION ALL
+SELECT NAME ,'数学' SUB ,数学 SCORE FROM STU_SCORE
+ORDER BY NAME , SUB
+</code></pre>
+
+<h2 id="_49">伪列</h2>
+<p>在表中存在，但一般看不到
+- ROWNUM
+    - 序号（从1开始），可用于分页查询
+    - E.G. 查看前10行
+    <code>SQL
+    SELECT * FROM EMP WHERE ROWNUM&lt;=10;</code>
+    - 分页查询，要用子查询的方法，给 ROWNUM 取别名
+    <code>SQL
+    SELECT * 
+    FROM 
+    (SELECT ROWNUM PN ,EMP.* FROM EMP) E
+    WHERE E.PN BETWEEN 10 AND 20;</code>
+    - 按排序查询前几名的时候，也要用子查询，先排序，后取前几名</p>
+<ul>
+<li>ROWID<ul>
+<li>存放的地址，可用于删除重复数据</li>
+<li>E.G. 去重
+<code>SQL
+DELETE FROM EMP WHERE ROWID NOT IN
+(SELECT MIN(ROWID) FROM EMP GROUP BY EMPNO);</code></li>
+</ul>
+</li>
+</ul>
+<h2 id="like">模糊查询 LIKE</h2>
+<p>_  代表一个字符<br />
+%  代表任意字符  </p>
+<ul>
+<li>E.G.  姓名 S 开头的员工</li>
+</ul>
+<pre><code class="SQL">SELECT * FROM EMP WHERE ENAME LIKE 'S%'
+</code></pre>
+
+<h2 id="_50">字符函数</h2>
+<ul>
+<li>
+<p>REPLACE 替换</p>
+<ul>
+<li>REPLACE(X,OLD,NEW)</li>
+<li>E.G.
+<code>SQL
+REPLACE('I LIKE YOU' ,'LIKE' ,'HATE')</code></li>
+</ul>
+</li>
+<li>
+<p>TRIM 截去</p>
+<ul>
+<li>LTRIM(X [,FMT]) / RTRIM(X [,FMT]) <ul>
+<li>从左边 / 右边截去某个字符</li>
+<li>FMT 可省略 ，省略默认截去空格</li>
+</ul>
+</li>
+<li>TRIM <ul>
+<li>TRIM(X FROM STR)</li>
+<li>从两头截去</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>LENGTH </p>
+<ul>
+<li>LENGTH(X) </li>
+<li>查询所占字节</li>
+</ul>
+</li>
+<li>
+<p>SUBSTR</p>
+<ul>
+<li>SUBSTR(X ,START ,N)</li>
+<li>字符截取，把字符 X 从 START 开始截取 N 位</li>
+<li>若 N 省略，默认截取到最后</li>
+</ul>
+</li>
+<li>
+<p>INSTR </p>
+<ul>
+<li>INSTR(X,Y,START,N)</li>
+<li>在字符 X 中，查找字符 Y ，从 START 开始找，第 N 次出现的位置</li>
+<li>N 省略时默认第一次</li>
+</ul>
+</li>
+<li>
+<p>CONCAT</p>
+<ul>
+<li>CONCAT(X,Y)</li>
+<li>将 X ，Y 拼接起来</li>
+<li>实际使用中，常常用 || ，而不是 CONCAT</li>
+</ul>
+</li>
+<li>
+<p>WM_CONCAT</p>
+<ul>
+<li>E.G.
+<code>SQL
+SELECT DEPTNO ,WM_CONCAT(ENAME) FROM EMP GROUP BY DEPTNO;</code></li>
+</ul>
+</li>
+</ul>
+<h2 id="_51">数字函数</h2>
+<ul>
+<li>
+<p>ABS </p>
+<ul>
+<li>求绝对值</li>
+</ul>
+</li>
+<li>
+<p>MOD</p>
+<ul>
+<li>MOD(X,Y)</li>
+<li>求 X 对 Y 的余数</li>
+</ul>
+</li>
+<li>
+<p>ROUND</p>
+<ul>
+<li>ROUND(X [,FMT])</li>
+<li>四舍五入，默认到整数</li>
+</ul>
+</li>
+<li>
+<p>TRUNC</p>
+<ul>
+<li>TRUNC(X [,FMT])</li>
+<li>舍去，默认舍去小数</li>
+</ul>
+</li>
+<li>
+<p>POWER</p>
+<ul>
+<li>POWER(x,y)       </li>
+<li>x的y次幂</li>
+</ul>
+</li>
+<li>
+<p>SQRT</p>
+<ul>
+<li>SQRT(X)</li>
+<li>求 X 的平方</li>
+</ul>
+</li>
+<li>
+<p>CEIL</p>
+<ul>
+<li>ceil(n) </li>
+<li>取大于等于数值n的最小整数</li>
+</ul>
+</li>
+<li>
+<p>FLOOR</p>
+<ul>
+<li>floor(n)</li>
+<li>取小于等于数值n的最大整数</li>
+</ul>
+</li>
+</ul>
+<h2 id="_52">日期函数</h2>
+<ul>
+<li>
+<p>SYSDATE</p>
+<ul>
+<li>系统时间</li>
+</ul>
+</li>
+<li>
+<p>LAST_DAY</p>
+<ul>
+<li>LAST_DAY(DATE)</li>
+<li>求本月最后一天</li>
+</ul>
+</li>
+<li>
+<p>ADD_MONTHS</p>
+<ul>
+<li>ADD_MONTHS(DATE,N)</li>
+<li>在当前月份加 N 个月，N 可以是负数</li>
+<li>当月份日期为最后的一天时，结果也是最后一天</li>
+</ul>
+</li>
+</ul>
+<h3 id="_53">使用</h3>
+<p>在实际中，日期往往与 TRUNC 函数一起使用<br />
+- e.g. </p>
+<pre><code class="SQL">SELECT SYSDATE ,
+       TRUNC(SYSDATE),--2020/8/12
+       TRUNC(SYSDATE,'YYYY'),--截取到当年的第一天 2020/1/1
+       TRUNC(SYSDATE,'MM'),--截取到当月的第一天 2020/8/1
+       TRUNC(SYSDATE,'Q'),--截取到本季度的第一天 2020/7/1
+       TRUNC(SYSDATE,'IW')--截取到本周的第一天
+FROM DUAL;
+</code></pre>
+
+<ul>
+<li>
+<p>日期可以与数字运算，此时数字是天数</p>
+</li>
+<li>
+<p>日期也可以与日期运算，此时结果是天数</p>
+</li>
+</ul>
+<h2 id="_54">数据类型转换函数</h2>
+<ul>
+<li>
+<p>TO_NUMBER()</p>
+<ul>
+<li>日期不可以直接转数字，要先转字符，再转数字</li>
+<li>E.G. 
+<code>SQL
+SELECT TO_NUMBER(TO_CHAR(SYSDATE,'YYYYMMDD')) FROM DUAL;</code></li>
+</ul>
+</li>
+<li>
+<p>TO_CHAR()</p>
+<ul>
+<li>E.G.
+<code>SQL
+SELECT TO_CHAR(SYSDATE),
+        TO_CHAR(SYSDATE,'YYYY'),--2020
+        TO_CHAR(SYSDATE,'Q'),--3 季度
+        TO_CHAR(SYSDATE,'MM'),--08 月份
+        TO_CHAR(SYSDATE,'IW'),--33 当年的第几周
+        TO_CHAR(SYSDATE,'W'),--2 当月的第几周
+        TO_CHAR(SYSDATE,'DDD'),--225 当年的第几天
+        TO_CHAR(SYSDATE,'DD'),--12 当月的第几天
+        TO_CHAR(SYSDATE,'D')--4  当周的第几天
+FROM DUAL;</code></li>
+</ul>
+</li>
+<li>
+<p>TO_DATE()</p>
+<ul>
+<li>E.G.
+<code>SQL
+SELECT TO_DATE('20200801','YYYYMMDD') FROM DUAL;</code></li>
+</ul>
+</li>
+</ul>
+<h2 id="_55">空值转换函数</h2>
+<ul>
+<li>NVL <ul>
+<li>NVL(列, 默认值)         </li>
+<li>如果列值为null,则使用默认值表示</li>
+</ul>
+</li>
+<li>NVL2<ul>
+<li>NVL2(列, 返回值1, 返回值2)</li>
+<li>如果列值不为null,返回结果1;如果列值为null,返回结果2</li>
+</ul>
+</li>
+</ul>
+<h2 id="_56">分析函数</h2>
+<p>每一组的每一行都有一个返回值<br />
+FUNCTION_NAME(&lt;参数&gt;,...) OVER (<PARTITION BY 表达式 ,...>&lt;ORDER BY 表达式 <ASC DESC>)  </p>
+<ul>
+<li>
+<p>PARTITION BY 与 GROUP BY 作用一样</p>
+</li>
+<li>
+<p>ORDER BY 不仅仅是排序，而且累计求和</p>
+</li>
+<li>
+<p>OVER 里面可以不写，表示对全部数据</p>
+</li>
+</ul>
+<h3 id="_57">和聚合函数一起</h3>
+<ul>
+<li>E.G. 求每个部门平均工资</li>
+</ul>
+<pre><code class="SQL">SELECT E.* ,AVG(SAL)OVER(PARTITION BY DEPTNO) FROM EMP E
+</code></pre>
+
+<ul>
+<li>E.G. 每个部门的累计工资</li>
+</ul>
+<pre><code class="SQL">SELECT E.*,SUM(SAL)OVER(PARTITION BY DEPTNO ORDER BY SAL ) FROM EMP E
+</code></pre>
+
+<h3 id="_58">和排序函数一起用</h3>
+<ul>
+<li>
+<p>排序函数</p>
+<ul>
+<li>ROW_NUMBER() <ul>
+<li>直接排序</li>
+<li>1 2 3 4 5</li>
+</ul>
+</li>
+<li>DENSE_RANK()<ul>
+<li>有相同的继续</li>
+<li>1 2 2 2 3</li>
+</ul>
+</li>
+<li>RANK()<ul>
+<li>有相同的跳过</li>
+<li>1 2 2 2 5</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>E.G.</p>
+</li>
+</ul>
+<pre><code class="SQL">SELECT E.ENAME,E.SAL,ROW_NUMBER() OVER(PARTITION BY E.DEPTNO ORDER BY E.SAL) FROM EMP E
+</code></pre>
+
+<h3 id="_59">和位移函数一起用</h3>
+<p>求同比、环比
+- 位移函数
+    - LEAD() / LAG()
+    - 求之前 / 之后的第 N 行
+    - 参数(ARG1，ARG2，ARG3)  <br />
+        - 参数1 ：列名
+        - 参数2 ：偏移的值
+        - 参数3 ：超出时的默认值</p>
+<ul>
+<li>E.G.</li>
+</ul>
+<pre><code class="SQL">SELECT E.ENAME,E.HIREDATE,LEAD(E.HIREDATE,1)OVER(ORDER BY E.HIREDATE)  FROM EMP E;
+</code></pre>
+
+<h2 id="_60">同步数据</h2>
+<h3 id="_61">增量同步</h3>
+<p>在目标表中已有数据，则更新；没有则插入
+- MERGE INTO 
+    <code>SQL
+    MERGE INTO  目标表
+    USING   源表
+    ON  (...)  -- 一定要加括号
+    WHEN MATCHED THEN 
+        UPDATE SET ...
+    WHEN NOT MATCHED THEN
+        INSERT ... VALUES ...</code></p>
+<pre><code>- E.G.
+```SQL
+MERGE INTO DICTB B
+USING DICTA A
+ON (B.ID=A.ID)  -- 一定要加括号
+WHEN MATCHED THEN
+    UPDATE SET B.DESC=A.DESC  -- 要更新的内容
+WHEN NOT MATCHED THEN 
+    INSERT (B.ID,B.DESC) VALUES (A.ID,A.DESC)  -- 要插入的内容
+```
+- 这里 INSERT 后面不用加 INTO
+
+- E.G. 将 EMP 的数据，同步到 EMP_A
+```SQL
+MERGE INTO EMP_A EZ
+USING EMP E
+ON (EZ.EMPNO=E.EMPNO)
+WHEN MATCHED THEN
+    UPDATE SET  EZ.ENAME=E.ENAME,
+        EZ.JOB=E.JOB,
+        EZ.MGR=E.MGR,
+        EZ.HIREDATE=E.HIREDATE,
+        EZ.SAL=E.SAL,
+        EZ.COMM=E.COMM,
+        EZ.DEPTNO=E.DEPTNO
+WHEN NOT MATCHED THEN
+    INSERT  (EZ.EMPNO,EZ.ENAME,EZ.JOB,EZ.MGR,EZ.HIREDATE,EZ.SAL,EZ.COMM,EZ.DEPTNO)
+    VALUES  (E.EMPNO,E.ENAME,E.JOB,E.MGR,E.HIREDATE,E.SAL,E.COMM,E.DEPTNO);
+```
+</code></pre>
+<ul>
+<li>
+<p>结合存储过程的 MERGE INTO </p>
+<ul>
+<li>可以传递参数</li>
+</ul>
+</li>
+<li>
+<p>游标</p>
+<ul>
+<li>用游标逐行判断</li>
+<li>游标选择源表</li>
+<li>E.G. 将 TEST_MERGE_XBB 表的内容，同步到 TEST_MERGE_XB 表
+<code>SQL
+CREATE OR REPLACE PROCEDURE SP_CUR_UPDATE
+IS
+    CURSOR C_XBB IS SELECT * FROM TEST_MERGE_XBB;
+    V_CO NUMBER(5);
+BEGIN
+    FOR X IN C_XBB LOOP
+        SELECT COUNT(1) INTO V_CO FROM TEST_MERGE_XB XB WHERE XB.EMPNO=X.EMPNO;
+        IF V_CO&gt;0 THEN        -- 数据存在
+            UPDATE TEST_MERGE_XB XB SET EMPNO=X.EMPNO,
+                               ENAME = X.ENAME,
+                               SAL=X.SAL WHERE XB.EMPNO=X.EMPNO;
+        ELSE                    -- 数据不存在
+            INSERT INTO TEST_MERGE_XB XB VALUES (X.EMPNO,X.ENAME,X.SAL);
+        END IF;
+    END LOOP;
+    COMMIT;
+END;</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="_62">全量同步</h3>
+<p>旧数据清空，将新数据全部插入目标表
+- DB_LINK</p>
+<pre><code class="SQL">CREATE PUBLIC DATABASE LINK DB_1
+CONNECT TO 用户名 IDENTIFIED BY ADMIN
+USING'IP地址:端口/库名';
+
+CREATE OR REPLACE PROCEDURE SP_DBLINK_1
+IS
+BEGIN
+    EXECUTE IMMEDIATE 'TRUNCATE TABLE EMP';  -- 支持重跑
+    INSERT INTO EMP SELECT * FROM EMP@DB_1;
+    COMMIT;
+END;
+</code></pre>
+
+<hr />
+<h2 id="_63">数据库对象</h2>
+<h3 id="_64">序列</h3>
+<p>当表中没有主键，但需要类似id时，可以用序列<br />
+ORACLE 中的序列，与 MYSQL 中的 auto_increment 作用一样</p>
+<pre><code class="SQL">CREATE SEQUENCE sequence_name 
+[START WITH NUM] -- 默认值是 1
+[INCREMENT BY increment] -- 步长，默认 1
+</code></pre>
+
+<ul>
+<li>SEQUENCE.CURRVAL <ul>
+<li>当前序号</li>
+</ul>
+</li>
+<li>SEQUENCE.NEXTVAL<ul>
+<li>下一个序号</li>
+</ul>
+</li>
+</ul>
+<h3 id="_65">视图</h3>
+<pre><code class="SQL">CREATE OR REPLACE VIEW EMPVIEW 
+AS 
+SELECT * FROM EMP 
+ONLY READ;  -- 只读
+</code></pre>
+
+<h3 id="_66">索引</h3>
+<p>一个表只能有一个索引</p>
+<pre><code class="SQL">CREATE [UNIQUE] INDEX index_name 
+ON table_name(column_name,...)
+</code></pre>
+
+<ul>
+<li>
+<p>唯一索引  </p>
+<ul>
+<li>UNIQUE INDEX</li>
+<li>主键也是索引（唯一索引）</li>
+</ul>
+</li>
+<li>
+<p>组合索引</p>
+<ul>
+<li>对多列建立索引时</li>
+</ul>
+</li>
+<li>
+<p>位图索引(BITMAP)</p>
+<ul>
+<li>通过start rowid，end rowid 和二进制位的偏移，计算出二进制位所代表的表记录的 rowid
+<code>SQL
+CREATE BITMAP INDEX index_emp ON EMP(ID);</code></li>
+</ul>
+</li>
+<li>
+<p>函数索引</p>
+<ul>
+<li>在建立索引时，使用函数
+<code>SQL
+CREATE INDEX index_ID ON EMP(ROUND(ID));</code></li>
+</ul>
+</li>
+<li>
+<p>索引失效</p>
+<ul>
+<li>隐式转换（数字类型转化为字符类型）</li>
+<li>索引运算</li>
+<li>使用函数（此时应先建立函数索引）</li>
+<li>使用不等于、不在、模糊搜索时</li>
+</ul>
+</li>
+</ul>
+<h3 id="_67">表分区</h3>
+<p>只有在创建表的时候可以建立表分区。已经建立的表无法创建表分区。
+- 范围分区
+    - E.G. 按日期进行分区
+    <code>SQL
+    CREATE TABLE MYEMP
+    (
+        ...
+    )
+    PARTITION  BY  RANGE (HIREDATE)
+    (
+        PARTITION  part1 VALUES  LESS  THAN (TO_DATE('1981-1-1','YYYY/MM/DD')), 
+        PARTITION  part2 VALUES  LESS  THAN (TO_DATE('1982-1-1','YYYY/MM/DD')),
+        PARTITION  part3 VALUES  LESS  THAN (TO_DATE('1983-1-1','YYYY/MM/DD')), 
+        PARTITION  part4 VALUES  LESS  THAN (TO_DATE('1988-1-1','YYYY/MM/DD')), 
+        PARTITION  part5 VALUES  LESS  THAN (MAXVALUE)
+    )</code></p>
+<ul>
+<li>
+<p>列表分区</p>
+<ul>
+<li>E.G.
+<code>SQL
+CREATE TABLE MYEMP2
+(
+    ...
+)
+PARTITION BY LIST (DEPTNO)
+(
+    PARTITION MYEMP_DEPTNO_10  VALUES (10),
+    PARTITION MYEMP_DEPTNO_20  VALUES (20) ,
+    PARTITION MYEMP_DEPTNO_30  VALUES (30) , 
+    PARTITION MYEMP_DEPTNO_40  VALUES (40) 
+)</code></li>
+</ul>
+</li>
+<li>
+<p>添加分区
+    <code>SQL
+    ALTER TABLE SALES ADD PARTITION P3 VALUES LESS THAN(TO_DATE('2003-06-01','YYYY-MM-DD'));</code></p>
+</li>
+<li>
+<p>删除分区
+    <code>SQL
+    ALTER TABLE SALES DROP PARTITION P3;</code></p>
+</li>
+<li>
+<p>查看分区情况
+    <code>SQL
+    select * from user_tab_partitions where table_name ='tableName';</code></p>
+</li>
+<li>
+<p>查看分区数据
+    <code>SQL
+    select * from tablename partiton(p1);</code></p>
+</li>
+</ul>
+<h3 id="hints">HINTS</h3>
+<ul>
+<li>
+<p>常用HINTS  </p>
+<ol>
+<li>/<em>+ PARALLEL(表名1,并行数)[(表名2,并行数)……] </em>/ --指定开启多少个并行|并发（一般为2、4、8……）</li>
+<li>/<em>+ INDEX(表名,索引名) </em>/ --指定索引</li>
+<li>/<em>+ FULL(表名) </em>/ --指定全表扫描</li>
+<li>/<em>+ USE_NL(表名1，表名2) </em>/ --指定用NESTED LOOP连接</li>
+<li>/<em>+ USE_HASH(表名1，表名2) </em>/ --指定用HASH连接</li>
+<li>/<em>+ USE_MERGE(表名1，表名2) </em>/ --指定用SORT MERGE JOIN</li>
+<li>/<em>+ LEADING(表名1，表名2) </em>/ --指定表1作为驱动表</li>
+<li>/<em>+ APPEND </em>/ --数据直接插入到高水位上面(与insert连用)直接往后面插，无视前面的空位置</li>
+</ol>
+</li>
+<li>
+<p>E.G.
+    <code>SQL
+    SELECT * /*+ PARALLEL(E,2)(D,2)*/
+    FROM EMP E, DEPT D
+    WHERE E.DEPTNO = D.DEPTNO</code></p>
+</li>
+</ul>
+<h3 id="_68">关联机制</h3>
+<ul>
+<li>
+<p>嵌套循环（NESTED LOOPS JOIN（NL））</p>
+<ul>
+<li>不等于连接的时候</li>
+<li>依次从驱动表中提取一条记录，遍历被探查表</li>
+<li>优点：适用广，占用内存小，展现快</li>
+<li>缺点：需要不停地从硬盘中读取扫描表，性能不好</li>
+<li>注意：两张表需要关联时，大表适合做被探查表，可以减少从硬盘读取次数</li>
+</ul>
+</li>
+<li>
+<p>哈希关联（Hash Join（HJ））</p>
+<ul>
+<li>没有索引，并且等值关联的时候，使用哈希关联<ul>
+<li>等值连接：条件连接在连接运算符为“=”号 ！！！！！！</li>
+</ul>
+</li>
+<li>计算出整张探查表的哈希值、关联字段对应的哈希值，进行匹配</li>
+<li>优点：性能好，匹配次数大大减少</li>
+<li>缺点：只适用于等值连接，占用内存较大</li>
+<li>两张表需要关联时，小表适合做被探查表，怕缓存不足</li>
+</ul>
+</li>
+<li>
+<p>排序合并(Sort Merge Join (SMJ) )</p>
+<ul>
+<li>大于或小于连接的时候</li>
+<li>将关联的两张表分别进行排序，生成临时的两张表后，随机取一张表逐条抽取记录与另一张表匹配</li>
+<li>优点：适合有索引的两张表或者不等关联</li>
+<li>缺点：排序性能消耗大，占用内存大</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h1 id="plsql">PL/SQL 程序设计</h1>
+<h2 id="_69">基础</h2>
+<pre><code class="SQL">[DECLARE]
+    声明变量，常量，游标;
+BEGIN
+    执行部分;
+[EXCEPTION]
+    异常处理;
+END;
+</code></pre>
+
+<h3 id="_70">输出</h3>
+<ul>
+<li>
+<p>DBMS_OUTPUT.PUT_LINE</p>
+<ul>
+<li>一行输出</li>
+<li>一次只能输出一个变量，可以用||将多个变量连起来</li>
+</ul>
+</li>
+<li>
+<p>DBMS_OUTPUT.PUT</p>
+<ul>
+<li>先保存到内存，遇到 PUTLINE 再输出</li>
+</ul>
+</li>
+</ul>
+<pre><code class="SQL">BEGIN
+    DBMS_OUTPUT.PUT_LINE('HELLO WORLD');
+END;
+</code></pre>
+
+<h3 id="_71">声明变量</h3>
+<pre><code class="SQL">DECLARE
+    V VARCHAR2(100) := 'HELLO WORLD'; -- 赋值用 :=
+BEGIN 
+    DBMS_OUTPUT.PUT_LINE(V);
+END;
+</code></pre>
+
+<ul>
+<li>变量赋值</li>
+</ul>
+<pre><code class="SQL">DECLARE
+    V EMP.ENAME%TYPE; --复制某字段的类型
+BEGIN
+    SELECT ENAME INTO V FROM EMP WHERE EMPNO=7369; 
+    -- 将查询的结果赋值给变量，只能返回一行
+    DBMS_OUTPUT.PUT_LINE(V);
+END;
+</code></pre>
+
+<pre><code class="SQL">DECLARE 
+    V EMP%ROWTYPE; --将整个表的字段和数据类型都赋给变量
+BEGIN
+    SELECT ENAME ,JOB INTO V.ENAME ,V.JOB FROM EMP WHERE EMPNO=7369;
+    -- 使用的时候，使用 V.ENAME 使用特定字段的数据类型
+    DBMS_OUTPUT.PUT_LINE(V.ENAME||V.JOB);
+END;
+</code></pre>
+
+<h3 id="_72">输入</h3>
+<p>&amp;注释 进行输入  </p>
+<pre><code class="SQL">DECLARE
+    V EMP.ENAME%TYPE;
+BEGIN 
+    SELECT ENAME INTO V FROM EMP WHERE EMPNO= &amp;请输入编号;
+    DBMS_OUTPUT.PUT_LINE(V);
+END;
+</code></pre>
+
+<h3 id="_73">常量</h3>
+<pre><code class="SQL">DECLARE 
+    PI CONSTANT NUMBER(10，2) := 3.14;  -- 常量声明
+    R NUMBER(10);
+    S NUMBER(10，2);
+BEGIN
+    R := 10;
+    S := PI*R*R;
+    DBMS_OUTPUT.PUT_LINE(S);
+END;
+</code></pre>
+
+<h3 id="_74">判断</h3>
+<pre><code class="SQL">IF ... THEN
+    ...
+END IF;
+</code></pre>
+
+<pre><code class="SQL">IF ... THEN
+    ...
+ELSE
+    ...
+END IF;
+</code></pre>
+
+<pre><code class="SQL">IF ... THEN
+    ...
+ELSIF ... THEN    -- ELSIF 等价于其他语言的 else if
+    ...
+...
+END IF;
+</code></pre>
+
+<h3 id="_75">循环</h3>
+<ul>
+<li>
+<p>LOOP</p>
+<ul>
+<li>无条件开始，需要加跳出条件</li>
+<li>退出条件：EXIT WHEN ...; / IF ... THEN EXIT; END IF;</li>
+</ul>
+<p><code>SQL
+LOOP
+    ...
+    EXIT WHEN ...;
+END LOOP;</code></p>
+<ul>
+<li>E.G.
+<code>SQL
+DECLARE
+  V_NUM NUMBER(10) := 0;
+  V_I   NUMBER(5) := 0;
+BEGIN
+  LOOP
+    V_I   := V_I + 1;
+    V_NUM := V_NUM + V_I;
+    EXIT WHEN V_I &gt;= 100;
+  END LOOP;
+  DBMS_OUTPUT.put_line(V_NUM);
+END;</code></li>
+</ul>
+</li>
+<li>
+<p>WHILE</p>
+<ul>
+<li>满足条件时才执行
+<code>SQL
+WHILE ... LOOP
+    ...
+END LOOP;</code></li>
+<li>
+<p>也可以增加退出条件，强制退出
+<code>SQL
+WHILE ... LOOP
+    ...
+    EXIT WHEN ...;
+END LOOP;</code></p>
+</li>
+<li>
+<p>E.G.
+<code>SQL
+DECLARE
+  V_NUM NUMBER(10) := 0;
+  V_I   NUMBER(5) := 0;
+BEGIN
+  WHILE V_I &lt; 100 LOOP
+    V_I   := V_I + 1;
+    V_NUM := V_NUM + V_I;
+  END LOOP;
+  DBMS_OUTPUT.put_line(V_NUM);
+END;</code></p>
+</li>
+</ul>
+</li>
+<li>
+<p>FOR
+    <code>SQL
+    FOR I IN 1..10 LOOP
+        ...
+    END LOOP;</code>  </p>
+<ul>
+<li>E.G.
+<code>SQL
+DECLARE
+  V_NUM NUMBER(10) := 0;
+BEGIN
+  FOR I IN 1 .. 100 LOOP
+    V_NUM := V_NUM + I;
+  END LOOP;
+  DBMS_OUTPUT.put_line(V_NUM);
+END;</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="_76">游标</h3>
+<p>游标是指向查询结果集的指针，通过游标可以将结果集的记录取出。<br />
+实际使用方法类似于Python中的list。</p>
+<ul>
+<li>
+<p>隐式游标</p>
+<ul>
+<li>PL/SQL 中的数据操作会自动声明一个隐式游标（一行数据）</li>
+</ul>
+</li>
+<li>
+<p>显示游标</p>
+<ul>
+<li>对于多行返回的查询数据，必须自己创建游标。</li>
+<li>方法1：使用 OPEN , FETCH , CLOSE 语句来控制。
+<code>SQL
+DECLARE
+    CURSOR 游标名(C_游标名) IS 
+        SELECT 结果集;
+BEGIN
+    OPEN 游标名[(参数)]; -- 打开游标
+    LOOP 
+        FETCH 游标名
+            INTO 记录变量; -- 提取数据
+    END LOOP;
+    CLOSE 游标名; -- 关闭游标！！！
+END;</code></li>
+<li>%FOUND<ul>
+<li>%NOTFOUND 提取不到的数据时候</li>
+<li>%FOUND    提取到数据的时候</li>
+</ul>
+</li>
+<li>
+<p>E.G.
+<code>SQL
+DECLARE
+    CURSOR C_EMP IS SELECT ENAME,SAL FROM EMP WHERE JOB='MANAGER';
+    V_ENAME EMP.ENAME%TYPE;
+    V_SAL   EMP.SAL%TYPE;
+BEGIN
+    OPEN C_EMP;
+    LOOP
+        FETCH C_EMP INTO V_ENAME,V_SAL;
+        EXIT WHEN C_EMP%NOTFOUND;
+        DBMS_OUTPUT.put_line(V_ENAME||'---'||V_SAL);
+    END LOOP;
+    CLOSE C_EMP;
+END;</code></p>
+</li>
+<li>
+<p>方法2：FOR 循环（不用打开关闭）</p>
+</li>
+<li>
+<p>e.g.
+    <code>SQL
+    DECLARE 
+    CURSOR C_EMP IS 
+        SELECT ENAME,SAL FROM EMP WHERE JOB='MANAGER';
+    BEGIN
+        FOR X IN C_EMP LOOP
+            DBMS_OUTPUT.put_line(X.ENAME||'---'||X.SAL);
+        END LOOP;
+    END;</code></p>
+</li>
+<li>
+<p>带参数游标</p>
+<ul>
+<li>设置参数的时候只能加数据类型，不能加数据长度</li>
+<li>E.G.
+<code>SQL
+DECLARE 
+    CURSOR C_EMP(P_NUM1 EMP.DEPTNO%TYPE,P_NUM2 EMP.DEPTNO%TYPE) IS 
+        SELECT * FROM EMP WHERE DEPTNO IN (P_NUM1，P_NUM2);
+BEGIN
+    FOR X IN C_EMP(10，20) LOOP
+        DBMS_OUTPUT.PUT_LINE(X.ENAME||'---'||X.DEPTNO);
+    END LOOP;
+END;</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="sql">动态SQL</h3>
+<p>在 BEGIN 里不能直接执行 DDL （CREATE,ALTER,DROP,TRUNCATE）。<br />
+将 DDL 语句转化为字符串在动态 SQL 语句中执行。</p>
+<pre><code class="SQL">EXECUTE IMMEDIATE 动态语句字符串（字符串里面不能有分号;!!!）
+[INTO 变量列表]
+[USING 参数列表]
+</code></pre>
+
+<ul>
+<li>
+<p>字符串语句可以通过 || 进行拼接</p>
+</li>
+<li>
+<p>不带参数</p>
+<ul>
+<li>E.G.
+<code>SQL
+begin
+    execute immediate 'create table test(name varchar2(8))';
+    -- 字符串里面不能有分号;!!!
+end;</code></li>
+</ul>
+</li>
+<li>
+<p>带参数，带返回值</p>
+<ul>
+<li>参数用 :1 这种方式</li>
+<li>E.G. 
+<code>SQL
+DECLARE
+    V_NUM NUMBER(10):=&amp;EMPNO;
+    V_NUMO NUMBER(10):=&amp;DEPTNO;
+    V_ENAME EMP.ENAME%TYPE;
+BEGIN
+    EXECUTE IMMEDIATE 'SELECT ENAME FROM EMP WHERE EMPNO=:1 AND DEPTNO=:2'
+        INTO V_ENAME        -- 返回值
+        USING V_NUM,V_NUMO; -- 参数
+    DBMS_OUTPUT.PUT_LINE(V_ENAME);
+END;</code></li>
+</ul>
+</li>
+<li>
+<p>带游标</p>
+<ul>
+<li>E.G. 统计 T 开头的表的行数
+<code>SQL
+DECLARE 
+    CURSOR C_TABLE IS 
+        SELECT TABLE_NAME FROM ALL_TABLES 
+            WHERE USER='SCOTT' AND INSTR(TABLE_NAME,'T',1,1)=1;
+    V_LINE NUMBER(10) := 0;
+BEGIN
+    FOR T IN C_TABLE LOOP
+        EXECUTE IMMEDIATE 'SELECT COUNT(1) FROM '||T.TABLE_NAME  -- 字符串拼接
+            INTO V_LINE;
+        DBMS_OUTPUT.PUT_LINE(T.TABLE_NAME||'-----'||V_LINE);
+    END LOOP;
+END;</code></li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2 id="_77">存储过程</h2>
+<pre><code class="SQL">CREATE [OR REPLACE] PROCEDURE SP_过程名(参数 [IN|OUT|IN OUT] 数据类型 ，参数2...)
+IS|AS  -- 写哪个都可以
+    声明部门
+BEGIN
+    ...
+[EXCEPTION]
+    异常处理;
+END SP_过程名;
+</code></pre>
+
+<ul>
+<li>没有参数的时候，不用加括号</li>
+<li>IN 表示传入参数，不可以在过程中被重新赋值</li>
+<li>OUT 表示传出参数，可以被赋值</li>
+<li>IN OUT 表示传入传出参数，可以传入值，也可以被赋值，也可以返回值</li>
+<li>IN / OUT 可以不写，默认 IN</li>
+</ul>
+<h3 id="_78">规范</h3>
+<ul>
+<li>过程名 : SP_表名</li>
+<li>传入参数命名 : P_参数名 (P_START_DATE)</li>
+<li>变量命名 : V_变量 (V_END_DATE)</li>
+<li>存储过程编写结束时，要 : END SP_过程名;</li>
+<li>存储过程必须在程序块中被调用
+    <code>SQL
+    DECLARE
+    BEGIN
+        SP_存储过程(参数);
+    END;</code></li>
+<li>删除存储过程<ul>
+<li>DROP PROCEDURE SP_过程;</li>
+</ul>
+</li>
+</ul>
+<h3 id="_79">带参数过程</h3>
+<ul>
+<li>IN</li>
+</ul>
+<pre><code class="SQL">CREATE OR REPLACE PROCEDURE SP_DEPTNO(P_DEPTNO IN EMP.DEPTNO%TYPE)
+AS 
+CURSOR C_DEPT IS SELECT ENAME,JOB,SAL FROM EMP WHERE DEPTNO=P_DEPTNO;
+BEGIN
+    FOR X IN C_DEPT LOOP
+        DBMS_OUTPUT.PUT_LINE(X.ENAME||'---'||X.JOB||'---'||X.SAL);
+    END LOOP;
+END SP_DEPTNO;
+</code></pre>
+
+<ul>
+<li>OUT</li>
+</ul>
+<pre><code class="SQL">CREATE OR REPLACE PROCEDURE SP_EMP_DEPTNO(P_EMPNO IN EMP.EMPNO%TYPE ,P_DEPTNO OUT EMP.DEPTNO%TYPE)
+IS
+BEGIN
+    SELECT DEPTNO INTO P_DEPTNO FROM EMP WHERE EMPNO=P_EMPNO;
+END SP_EMP_DEPTNO;
+</code></pre>
+
+<ul>
+<li>OUT 的调用</li>
+</ul>
+<pre><code class="SQL">DECLARE
+    V_DEPTNO EMP.DEPTNO%TYPE;
+BEGIN
+    SP_EMP_DEPTNO(7369，V_DEPTNO); -- V_DEPTNO 接受存储过程 OUT 的值
+    DBMS_OUTPUT.PUT_LINE(V_DEPTNO);
+    SP_DEPTNO(V_DEPTNO); -- 再将 V_DEPTNO 传递给另一个存储过程
+END;
+</code></pre>
+
+<ul>
+<li>IN OUT </li>
+</ul>
+<pre><code class="SQL">CREATE OR REPLACE PROCEDURE SP_DEPT_JOB (P_DEPTNO_EMPNO IN OUT NUMBER,P_JOB_ENAME IN OUT VARCHAR2)
+IS
+BEGIN
+    SELECT EMPNO,ENAME INTO P_DEPTNO_EMPNO ,P_JOB_ENAME FROM EMP WHERE DEPTNO=P_DEPTNO_EMPNO AND JOB=P_JOB_ENAME;
+    -- 先调用变量，再将结果赋值给变量
+    DBMS_OUTPUT.PUT_LINE(P_DEPTNO_EMPNO||'---'||P_JOB_ENAME);
+END SP_DEPT_JOB;
+</code></pre>
+
+<ul>
+<li>IN OUT 调用</li>
+</ul>
+<pre><code class="SQL">DECLARE 
+    V_DEPTNO_EMPNO NUMBER(10):=10;
+    V_JOB_ENAME VARCHAR2(20) := 'MANAGER';
+BEGIN
+    SP_DEPT_JOB(V_DEPTNO_EMPNO,V_JOB_ENAME);
+END;
+</code></pre>
+
+<h3 id="_80">常见错误</h3>
+<ul>
+<li>NO_DATA_FOUND<ul>
+<li>没有找到数据</li>
+</ul>
+</li>
+<li>TOO_MANY_ROWS<ul>
+<li>返回多行数据</li>
+</ul>
+</li>
+</ul>
+<pre><code class="SQL">BEGIN
+    --可执行部分
+EXCEPTION -- 异常处理开始
+WHEN 异常名 1 THEN
+    --对应异常处理
+WHEN 异常名 2 THEN
+    --对应异常处理
+……
+WHEN OTHERS THEN
+    --其他异常处理
+END;
+</code></pre>
+
+<hr />
+<h2 id="_81">自定义函数</h2>
+<pre><code class="SQL">CREATE OR REPLACE FUNCTION FUN_函数名(参数 [IN|OUT|IN OUT] 数据类型 , 参数...)
+RETURN 数据类型
+IS|AS
+BEGIN
+    ...
+    RETURN ...;
+END;
+</code></pre>
+
+<ul>
+<li>函数一定要有返回值 RETURN</li>
+<li>在使用函数的时候，需要有对象来接收函数的返回值 RETURN</li>
+<li>函数除了 RETURN , 也可以像存储过程一样使用 OUT 返回值</li>
+<li>函数没有参数的时候，调用不用加括号 ()</li>
+<li>函数可以放在 SELECT 后面</li>
+<li>存储过程可以带函数，但函数中不能有存储过程</li>
+</ul>
+<h3 id="_82">实例</h3>
+<ul>
+<li>E.G. 求两个数的最大值</li>
+</ul>
+<pre><code class="SQL">CREATE OR REPLACE FUNCTION FUN_MAX(P_NUM1 NUMBER,P_NUM2 NUMBER)
+RETURN NUMBER
+IS
+BEGIN
+    IF P_NUM1&gt;P_NUM2 THEN
+        RETURN P_NUM1;
+    ELSE 
+        RETURN P_NUM2;
+    END IF;
+END FUN_MAX;
+</code></pre>
+
+<ul>
+<li>E.G. 输入两个数（1到20之间），输出连乘的结果。如果输入的数大于20，则返回错误提示。</li>
+</ul>
+<pre><code class="SQL">CREATE OR REPLACE FUNCTION FUN_MULTIPLY(P_NUM1 NUMBER,P_NUM2 NUMBER)
+RETURN VARCHAR
+IS
+    V_MIN NUMBER(10);
+    V_MAX NUMBER(10);
+    V_ANS NUMBER(30) := 1;
+BEGIN
+    IF P_NUM1 &gt; 20 OR P_NUM2 &gt; 20 THEN
+        RETURN  'NOT IN 1..20!!!';
+    END IF;
+    IF P_NUM1 &gt; P_NUM2 THEN
+        V_MAX := P_NUM1;
+        V_MIN := P_NUM2;
+    ELSE 
+        V_MAX := P_NUM2;
+        V_MIN := P_NUM1;
+    END IF;
+    FOR I IN V_MIN..V_MAX LOOP
+        V_ANS := V_ANS * I;
+    END LOOP;
+    RETURN V_ANS;
+END FUN_MULTIPLY;
+</code></pre>
+
+<hr />
+<h2 id="_83">创建包</h2>
+<h3 id="_84">创建包头</h3>
+<pre><code class="SQL">CREATE [OR REPLACE] PACKAGE PK_包名
+IS|AS
+变量、常量 数据类型定义；
+游标定义头部；
+函数、过程的定义，参数列表，返回类型；
+END [包名];
+</code></pre>
+
+<ul>
+<li>E.G.</li>
+</ul>
+<pre><code class="SQL">CREATE OR REPLACE PACKAGE PK_MYPACKAGE
+IS
+PROCEDURE SP_DEPTNO(P_DEPTNO IN EMP.DEPTNO%TYPE);
+FUNCTION FUN_MAX(P_NUM1 IN NUMBER,P_NUM2 IN NUMBER) RETURN NUMBER;
+END;
+</code></pre>
+
+<h3 id="_85">创建包体</h3>
+<pre><code class="SQL">CREATE [OR REPLACE] PACKAGE BODY PK_包名
+IS|AS
+
+PROCEDURE SP_NAME(参数)
+IS|AS
+BEGIN
+    ...
+END SP_NAME;
+
+FUNCTION FUN_NAME(参数) RETURN 类型
+IS|AS
+BEGIN
+    ...
+END FUN_NAME;
+
+END ;
+</code></pre>
+
+<h3 id="_86">调用</h3>
+<pre><code class="SQL">SELECT PK_NAME.FUN_TEST FROM DUAL;
+</code></pre>
+
+<pre><code class="SQL">BEGIN
+    PK_NAME.SP_NAME(...);
+END;
+</code></pre>
+
+<hr />
+<h2 id="_87">日志</h2>
+<p>日志就是一张记录操作的表<br />
+- 作用
+    - 追溯问题，可以找到出错环节
+    - 记录花费时间，方便对每一步进行优化
+    - 通常报错的时候，第一条日志往往是报错的原因</p>
+<ul>
+<li>创建日志表及相关操作</li>
+</ul>
+<pre><code class="SQL">CREATE TABLE LOG_RECORD(
+LOG_ID NUMBER(10),   -- 序列
+SP_NAME VARCHAR2(100),  -- 是哪个存储过程
+CYCLE_ID NUMBER(10),  -- 第几次调用
+STEP NUMBER(10),  
+STEP_NAME VARCHAR2(100),
+REMARK_TIME DATE
+);
+
+CREATE SEQUENCE SEQ_LOG_ID;
+
+CREATE SEQUENCE SEQ_CYCLE_ID;
+
+CREATE OR REPLACE PROCEDURE SP_LOG(P_SP_NAME VARCHAR2，P_STEP_NAME VARCHAR2)
+IS
+BEGIN
+    INSERT INTO LOG_RECORD VALUES
+    (SEQ_LOG_ID.NEXTVAL,P_SP_NAME,SEQ_CYCLE_ID.NEXTVAL,P_STEP_NAME,SYSDATE);
+    COMMIT;
+END;
+</code></pre>
+
+<ul>
+<li>使用日志</li>
+</ul>
+<pre><code class="SQL">CREATE OR REPLACE PROCEDURE SP_EMP()
+IS
+    V_SEQ NUMBER := SEQ_CYCLE_ID.NEXTVAL;
+BEGIN
+    SP_LOG(V_SEQ,'SP_EMP','START INSERT DATA');
+    INSERT INTO ......
+    COMMIT;
+    SP_LOG(V_SEQ,'SP_EMP','END INSERT DATA');
+END;
+
+BEGIN
+    SP_EMP();
+END;
+</code></pre>
+
+<h1 id="_88">概念</h1>
+<h2 id="bi">BI 概念</h2>
+<p>商业智能的关键是从许多来自不同的企业运作系统的数据中提取出有用的数据并进行清理，以保证数据的正确性，然后经过抽取（Extraction）、转换（Transformation）和装载（Load），即ETL过程，合并到一个企业级的数据仓库里，从而得到企业数据的一个全局视图，在此基础上利用合适的查询和分析工具、数据挖掘工具、OLAP工具等对其进行分析和处理（这时信息变为辅助决策的知识），最后将知识呈现给管理者，为管理者的决策过程提供支持。</p>
+<h2 id="_89">数据仓库</h2>
+<p>是一个面向主题的、集成的、相对稳定的、反映历史变化的数据集合。<br />
+- 面向主题的 
+    - 经过 ETL 抽数、清洗、转换加载后，数据按不同的主题存放在同一个库中，梳理归类</p>
+<ul>
+<li>
+<p>集成的</p>
+<ul>
+<li>来自不同的数据源</li>
+</ul>
+</li>
+<li>
+<p>相对稳定的</p>
+<ul>
+<li>不会人为的改变数据，只同步</li>
+</ul>
+</li>
+<li>
+<p>反映历史变化 </p>
+<ul>
+<li>源系统数据库一般只保存几个月，而数据仓库数据会一直保存</li>
+</ul>
+</li>
+</ul>
+<h3 id="ods">ODS 贴源层</h3>
+<p>主要作数据的抽取，转换和同步（ETL）<br />
+通过调度工具，定期将源系统的数据抽取到ODS中。</p>
+<h3 id="dw">DW 数据仓库</h3>
+<p>主要是从ODS层同步到数据到数据仓库<br />
+保存历史数据<br />
+根据业务的需要对事实表、维度表进行建模（星型模型，雪花模型，星座模型）<br />
+建模的结果在DM层！！！<br />
+- 星型模型
+    - 一个事实表，多个维度表
+    - 每个维度表都只与事实表连接
+    - 存在冗余数据
+    - 性能快</p>
+<ul>
+<li>
+<p>雪花模型</p>
+<ul>
+<li>一个事实表，多个维度表</li>
+<li>维度表可以与维度表连接</li>
+<li>冗余数据较少</li>
+<li>性能不如星型模型</li>
+</ul>
+</li>
+<li>
+<p>星座模型</p>
+<ul>
+<li>星型模型的升级</li>
+<li>可以有多个事实表</li>
+</ul>
+</li>
+</ul>
+<h3 id="dm">DM 数据集市</h3>
+<h2 id="_90">数据库补充</h2>
+<h3 id="_91">缓慢变化维</h3>
+<ul>
+<li>TYPE1:不保存历史数据，直接更新</li>
+<li>TYPE2:保存所有的历史数据(加行)<ul>
+<li>生效时间、失效时间（为了取出最新的数据）</li>
+<li>增加 flag 列，标记是否有效</li>
+</ul>
+</li>
+<li>TYPE3:保存当前或者上一次的历史数据（加列）</li>
+</ul>
+<h3 id="_92">拉链表</h3>
+<p>拉链表实际上用的就是 TYPE2 的方法</p>
+<hr />
+<h2 id="_93">补充</h2>
+<h3 id="sql_1">动态SQL脚本</h3>
+<ul>
+<li>E.G. 将 S 表进行行列转换</li>
+</ul>
+<pre><code class="SQL">SELECT 
+'SELECT Y'||','||
+    WM_CONCAT(DISTINCT('SUM(CASE WHEN Q='||Q||' THEN AMT ELSE 0 END) Q'||Q))
+||' FROM S
+GROUP BY Y'
+FROM S;
+</code></pre>
+
+<ul>
+<li>查询生成的结果，为可执行的 SQL 语句</li>
+<li>之后当 S 表进行变化时，只需要重新运行该查询，即可更新需要的 SQL 语句</li>
+<li>用 || 符合将固定的语句与动态语句分隔</li>
+<li>用 WM_CONCAT 对变化的语句进行合并，并且自动加上逗号 ,</li>
+<li>用 DISTINCT 对语句进行去重</li>
+</ul>
+<h3 id="with-as">WITH AS</h3>
+<p>WITH AS 可以创建临时表，方便查询</p>
+<pre><code class="SQL">WITH TEMP_NAME AS (SELECT ...),  -- 创建临时表
+TEMP2 AS (SELECT ...),
+...
+SELECT ...
+</code></pre>
+
+<h3 id="sql_2">SQL优化</h3>
+<ul>
+<li>
+<p>查看执行计划，增加索引</p>
+</li>
+<li>
+<p>数据量太大，内存不够，建立表分区</p>
+<ul>
+<li>建新表，转移数据到新表</li>
+</ul>
+</li>
+<li>
+<p>SQL规范</p>
+<ul>
+<li>索引失效</li>
+<li>UNION</li>
+<li>IN/EXISTS </li>
+</ul>
+</li>
+<li>
+<p>HINTS </p>
+<ul>
+<li>并行</li>
+<li>强制走索引</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h1 id="etl">ETL</h1>
+<h2 id="kettle">KETTLE</h2>
+<p>SQL 语句内，不能加分号;!!!!!!!!!</p>
+<hr />
+<h1 id="qa">Q&amp;A</h1>
+<ol>
+<li>
+<p>分析函数有哪些</p>
+</li>
+<li>
+<p>存储过程是什么</p>
+</li>
+<li>
+<p>UNION 和 UNION ALL 区别</p>
+</li>
+<li>
+<p>关联机制</p>
+</li>
+<li>
+<p>数据仓库有几层</p>
+</li>
+<li>
+<p>ODS,DW,DM的作用</p>
+</li>
+</ol>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../git_read/" class="btn btn-neutral float-right" title="Git_github">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../Linux/" class="btn btn-neutral" title="Linux_Centos"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../Linux/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../git_read/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
